@@ -16,6 +16,9 @@ class Income extends Entry {
     super(date, amount, description);
     this.type = "income";
   }
+  getFormattedAmount() {
+    return `${this.amount} €`;
+  }
 }
 
 // Expense
@@ -45,14 +48,12 @@ class Budget {
     if (!this.entries.length) {
       return 0;
     }
-
     this.totalIncome = 0;
-
     this.entries.forEach((entry) => {
       if (entry.type === "income") {
         this.totalIncome += entry.amount;
-      }
-    });
+      } 
+      });
 
     return this.totalIncome;
   }
@@ -63,7 +64,6 @@ class Budget {
     }
 
     this.totalExpenses = 0;
-
     this.entries.forEach((entry) => {
       if (entry.type === "expense") {
         this.totalExpenses += entry.amount;
@@ -76,6 +76,19 @@ class Budget {
     if (!this.entries.length) {
       return 0;
     }
-    return totalIncome - totalExpenses;
+    return this.getTotalIncome() - this.getTotalExpense();
   }
 }
+
+
+const budget = new Budget();
+
+const incomeEntry1 = new Income ("2022-01-01", 100, "Salary");
+const incomeEntry2 = new Income ("2022-02-01", 200, "Bonus");
+const expenseEntry = new Expense ("2022-01-15", 50, "Groceries", true);
+
+budget.addEntry(incomeEntry1);
+budget.addEntry(incomeEntry2);
+budget.addEntry(expenseEntry);
+
+console.log(budget.getCurrentBalance()); // Should print 300
