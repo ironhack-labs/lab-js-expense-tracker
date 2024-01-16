@@ -45,7 +45,7 @@ class Budget {
   }
   getTotalExpense() {
     let count = 0
-    this.entries.forEach(el => el.type !== 'income' ? count += el.amount : el)
+    this.entries.forEach(el => el.type !== 'expense' ? count += el.amount : el)
     return count
   }
   getCurrentBalance() {
