@@ -59,7 +59,7 @@ class Budget {
 
     }
     getCurrentBalance() {
-        if (this.entries === 0) {
+        if (this.entries.length === 0) {
             return 0;
         } 
         return this.getTotalIncome() - this.getTotalExpense();
@@ -68,24 +68,19 @@ class Budget {
     getTotal(type) {
         let totalAmount = 0; 
         this.entries.forEach(entry => {
-            if(entry.type === "type") {
+            if(entry.type === type) {
                 totalAmount += entry.amount;
             }
         })
         return totalAmount;
     }
     getFormattedEntries () {
-         const formattedEntries = [];
+         const formattedlist = [];
          this.entries.forEach(entry => {
-            let sign; 
-            if (entry.type === 'income') {
-                sign = '+';
-            } else {
-                sign = '-';
-            }
-            const formattedEntries = `${entry.date} | ${entry.description} | ${sign}${entry.amount} €`;
-            formattedEntries.push(formattedEntries);
+            const sign = entry.type === 'income' ? '+' : '-';           
+            const formattedEntry = `${entry.date} | ${entry.description} | ${sign}${entry.amount} €`;
+            formattedList.push(formattedEntry);
          });
-         return formattedEntries;
+         return formattedList;
     }
 }
