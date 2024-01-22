@@ -1,3 +1,5 @@
+// Add test for getTotal()
+
 describe("getTotal", () => {
   it("should be defined", () => {
     const budget = new Budget();

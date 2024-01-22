@@ -66,8 +66,6 @@ class Budget {
 
     this.entries.forEach(function (entry) {
       if (entry.type === entryType) {
-        totalIncome += entry.amount;
-      } else if (entry.type === "expense") {
         total += entry.amount;
       }
     });

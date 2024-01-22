@@ -243,8 +243,6 @@ describe("Budget", () => {
     });
   });
 
-  // Add test for getTotal()
-
   describe("getCurrentBalance", () => {
     it("should be defined", () => {
       const budget = new Budget();
