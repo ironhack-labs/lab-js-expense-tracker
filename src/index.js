@@ -45,7 +45,7 @@ class Budget {
         this.entries.forEach((eachEntry) => {
 
             if (eachEntry.type === "income") {
-                totalIncome += this.eachEntry.amount
+                totalIncome += eachEntry.amount
             }
         })
         return totalIncome
@@ -60,13 +60,33 @@ class Budget {
         return totalExpense
     }
     getCurrentBalance() {
+        let balance = 0
         if (this.entries.length === 0) {
             return 0
         } else {
-            let difference = this.totalIncome - this.totalExpense
-            return difference
-        }
+            this.totalIncome - this.totalExpense
 
+        }
+    }
+    getTotal(type) {
+        let totalType = 0
+        this.entries.forEach((eachEntry) => {
+            if (eachEntry.type === type) {
+                totalType++
+            }
+        })
+        return totalType
+    }
+    getFormattedEntries() {
+        let entriesFormatted = []
+        this.entries.forEach((eachEntry) => {
+            if (eachEntry.type === "income") {
+                entriesFormatted.push([(eachEntry.date).toUpperCase(), (eachEntry.description).toUpperCase(), `+${eachEntry.amount} €`])
+            } else if (eachEntry.type === "expense") {
+                entriesFormatted.push([(eachEntry.date).toUpperCase(), (eachEntry.description).toUpperCase(), `-${eachEntry.amount} €`])
+            }
+            return entriesFormatted
+        })
 
     }
 }
