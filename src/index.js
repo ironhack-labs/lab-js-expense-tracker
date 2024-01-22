@@ -69,26 +69,23 @@ class Budget {
         total += entry.amount;
       }
     });
-    if (this.entries.length === 0) {
-      return 0;
-    } else {
-      return total;
-    }
+
+    return total;
   }
 
-  //   getFormattedEntries() {
-  //     let formattedEntries = [];
-  //     this.entries.forEach(function (entry) {
-  //       const formattedEntry = `${
-  //         entry.date
-  //       } | ${entry.description.toUpperCase()} | ${
-  //         entry.type === "income" ? "+" : "-"
-  //       } ${entry.amount} €`;
+  getFormattedEntries() {
+    let formattedEntries = [];
+    this.entries.forEach(function (entry) {
+      const formattedEntry = `${
+        entry.date
+      } | ${entry.description.toUpperCase()} | ${
+        entry.type === "income" ? "+" : "-"
+      }${entry.amount} €`;
 
-  //       formattedEntries.push(formattedEntry);
-  //     });
-  //     return formattedEntries;
-  //   }
+      formattedEntries.push(formattedEntry);
+    });
+    return formattedEntries;
+  }
 
   getCurrentBalance() {
     return this.getTotalIncome() - this.getTotalExpense();
