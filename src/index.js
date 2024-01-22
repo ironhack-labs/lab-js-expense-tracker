@@ -31,7 +31,7 @@ class Expense extends Entry {
       // return '- ' + this.amount + '€';
       // return '- ' + this.amount + ' €';
       // return ` -${this.amount}€`;
-      // return `- ${this.amount} €`;
+      return `-${this.amount} €`;
       // console.log(`- ${this.amount}€`)
       // return '-' + this.amount + '€';
 
@@ -45,8 +45,11 @@ class Expense extends Entry {
         // return '-' + this.amount + '€';
         // return ` -${this.amount}€`
 
-        this.amount= '-' + this.amount + '€';
-        return this.amount;
+        // this.amount= '-' + this.amount + '€';
+        // return this.amount;
+        // return '-' + this.amount + '€'; 
+
+       // return '-' + this.amount + ' €';
     }
 }
 
