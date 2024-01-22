@@ -62,22 +62,19 @@ class Budget {
   }
 
   getTotal(entryType) {
-    let totalIncome = 0;
-    let totalExpenses = 0;
+    let total = 0;
+
     this.entries.forEach(function (entry) {
-      if (entry.type === "income") {
+      if (entry.type === entryType) {
         totalIncome += entry.amount;
       } else if (entry.type === "expense") {
-        totalExpenses += entry.amount;
+        total += entry.amount;
       }
     });
     if (this.entries.length === 0) {
       return 0;
-    }
-    if (entryType === "income") {
-      return totalIncome;
-    } else if (entryType === "expense") {
-      return totalExpenses;
+    } else {
+      return total;
     }
   }
 
