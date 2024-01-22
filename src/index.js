@@ -80,10 +80,14 @@ class Budget {
 
     getFormattedEntries() {
         if (this.type === 'income') {
-            return `${this.date} | ${this.description} | +${this.amount} €`;
+            this.entries.forEach(function (element) {
+                return `${element.date} | ${element.description} | +${element.amount} €`;
+            })
         }
         else if (this.type === 'expense') {
-            return `${this.date} | ${this.description} | -${this.amount} €`;
+            this.entries.forEach(function (element) {
+                return `${element.date} | ${element.description} | -${element.amount} €`;
+            })
         }
     }
 }
