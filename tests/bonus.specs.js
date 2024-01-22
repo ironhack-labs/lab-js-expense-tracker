@@ -2,12 +2,12 @@ describe("Budget", () => {
   describe("getFormattedEntries", () => {
     it("should be defined", () => {
       const budget = new Budget();
-      expect(budget.getTotalExpense).toBeDefined();
+      expect(budget.getFormattedEntries).toBeDefined();
     });
 
     it("should take no arguments", () => {
       const budget = new Budget();
-      expect(budget.getTotalExpense.length).toEqual(0);
+      expect(budget.getFormattedEntries.length).toEqual(0);
     });
 
     it("should return an array of strings with the formatted entries", () => {
@@ -25,7 +25,7 @@ describe("Budget", () => {
     it("should use the 'forEach()' method to iterate over the entries array", () => {
       const budget = new Budget();
       spyOn(budget.entries, "forEach").and.callThrough();
-      budget.getTotalExpense();
+      budget.getFormattedEntries();
       expect(budget.entries.forEach).toHaveBeenCalled();
       expect(budget.entries.forEach).toHaveBeenCalledWith(
         jasmine.any(Function)
