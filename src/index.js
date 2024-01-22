@@ -18,24 +18,22 @@ class Income extends Entry{
         
       this.type = "income";
 
-}
+  }
 }
 
 // Expense
 class Expense extends Entry {
     constructor(date, amount, description, paid){
-        super(date, amount, description, paid);
+        super(date, amount, description);
 
         this.type = "expense";
-        this.paid = true;
-
-         /* getFormattedAmount(){
-            return "-" + this.amount +"€" ;
-
-          } */
+        this.paid = paid;
             
-        }
     }
+    getFormattedAmount(){
+        return `-${this.amount} €`  
+      }
+}
 
 
 // Budget
@@ -44,35 +42,40 @@ class Budget {
         this.entries = [];
     }
 
-    addEntry(income){
-        this.entries.push(income);
+    addEntry(entry){
+        this.entries.push(entry);
 
     }
-/*
+
     getTotalIncome(){
-        this.sum = 0;
-        this.entries.forEach(element){
-          this.sum += element;
-     }
-        return this.sum;
+        let totalIncomeSum = 0;
+        this.entries.forEach((entry) => {
+                if(entry.type === "income"){
+                    totalIncomeSum += entry.amount;
+                }
+        }); 
+        return totalIncomeSum;
     }
 
     getTotalExpense(){
-
+        let totalExpenseSum = 0;
+        this.entries.forEach((entry) => {
+            if(entry.type === "expense"){
+                totalExpenseSum += entry.amount;
+            }
+        });
+        return totalExpenseSum;
     }
 
     getCurrentBalance(){
         if(this.entries.length === 0){
             return 0;
-        }
-
+        } 
         else{
-
-            return this.sum - 
+            return this.getTotalIncome() - this.getTotalExpense();
+           
         }
 
     }
-
-*/
 
 }
