@@ -79,15 +79,16 @@ class Budget {
     }
 
     getFormattedEntries() {
-        if (this.type === 'income') {
-            this.entries.forEach(function (element) {
-                return `${element.date} | ${element.description} | +${element.amount} €`;
-            })
-        }
-        else if (this.type === 'expense') {
-            this.entries.forEach(function (element) {
-                return `${element.date} | ${element.description} | -${element.amount} €`;
-            })
-        }
+        let formattedEntries = [];
+
+        this.entries.forEach(function (element) {
+            if (this.type === 'income') {
+                formattedEntries.push(`${element.date} | ${element.description} | +${element.amount} €`);
+            }
+            else if (this.type === 'expense') {
+                formattedEntries.push(`${element.date} | ${element.description} | -${element.amount} €`);
+            }
+        })
+        return formattedEntries;
     }
 }
