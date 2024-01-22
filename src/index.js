@@ -73,10 +73,40 @@ class Budget {
 
         const totalBalance = totalIncome - totalExpense;
 
+       
+
         return totalBalance;
     }
+    ////// Bonus 5
+    getTotal(type) {
+        let total = 0;
+
+        this.entries.forEach(function(entry) {
+            if (entry.type === type) {
+                total += entry.amount
+
+            }
+            
+        });
+        return total
+    }
     
-        
+    /// Bonus 6
+    getFormattedEntries() {
+
+        let formattedEntries = []
+  
+        this.entries.forEach(function(type) {
+            if (this.entry.type === "income") {
+                formattedEntries.push(`${this.date} | ${this.description} | + ${this.amount} $`)
+            }
+            else if (this.entry.type === "expenses") {
+                formattedEntries.push(`${this.date} | ${this.description} | - ${this.amount} $`)
+            }
+        });
+
+        return formattedEntries;
+    }
 
 
 }
