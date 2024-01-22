@@ -82,10 +82,10 @@ class Budget {
         let formattedEntries = [];
 
         this.entries.forEach(function (element) {
-            if (this.type === 'income') {
+            if (element.type === 'income') {
                 formattedEntries.push(`${element.date} | ${element.description} | +${element.amount} €`);
             }
-            else if (this.type === 'expense') {
+            else if (element.type === 'expense') {
                 formattedEntries.push(`${element.date} | ${element.description} | -${element.amount} €`);
             }
         })
