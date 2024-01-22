@@ -20,6 +20,7 @@ class Income extends Entry {
     constructor(date, amount, description) {
         super(date, amount, description);
         this.type = `income`;
+        this.amount = amount;
     }
 }
 
@@ -96,7 +97,7 @@ class Budget {
     getFormattedEntries() {
 
         this.entries.forEach((entry) => {
-            this.formattedEntries.push(`${this.date} | ${this.description} | ${this.getFormattedAmount()}`);
+            this.formattedEntries.push(`${entry.date} | ${entry.description} | ${(entry.type === 'income' ? '+' : '-') + entry.amount} €`);
         })
         return this.formattedEntries;
     }
