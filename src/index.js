@@ -71,7 +71,7 @@ class Budget {
     getTotal(type) {
         let sum = 0;
         this.entries.forEach((element) => {
-            if (element.type === type) {
+            if (element.type === this.type) {
                 sum += element.amount;
             }
         });
