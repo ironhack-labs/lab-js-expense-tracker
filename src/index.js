@@ -67,4 +67,23 @@ class Budget {
     getCurrentBalance() {
         return this.getTotalIncome() - this.getTotalExpense();
     }
+
+    getTotal(type) {
+        let sum = 0;
+        this.entries.forEach((element) => {
+            if (element.type === type) {
+                sum += element.amount;
+            }
+        });
+        return sum;
+    }
+
+    getFormattedEntries() {
+        if (this.type === 'income') {
+            return `${this.date} | ${this.description} | +${this.amount} €`;
+        }
+        else if (this.type === 'expense') {
+            return `${this.date} | ${this.description} | -${this.amount} €`;
+        }
+    }
 }
