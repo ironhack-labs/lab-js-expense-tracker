@@ -25,6 +25,10 @@ class Expense extends Entry {
     super(date, amount, description);
     this.paid = paid;
     this.type = "expense";
+
+    if (this.paid === undefined) {
+      this.paid = false;
+    }
   }
 
   getFormattedAmount() {
@@ -42,44 +46,83 @@ class Budget extends Entry {
 
   addEntry(entry) {
     this.entries.push(entry);
+    // console.log(this.entries);
+    // console.log(this.entries);
   }
   getTotalIncome() {
     if (this.entries.length === 0) {
       return 0;
     }
-    let sum = 0;
-    this.entries.forEach((element) => {
-      sum += element;
-      console.log(sum);
-      return sum;
-    });
-  }
-  getTotalExpense() {
-    
-    // this.entries.reduce((sum, entry) => entry.type === "income" ? sum + entry.amount : sum, 0);
 
-    let sum = 0;
-    for (let i = 0; i < this.entries.length; i++) {
-      if (this.entries[i].type === "income") {
-        sum += this.entries[i].amount;
+    this.totalIncome = 0;
+    let entries = this.entries;
+
+    // console.log("All Entries:", entries)
+
+    entries.forEach((element) => {
+      if (element.type === "income") {
+        this.totalIncome += element.amount;
       }
-    }
-    return sum
+    });
+    // console.log("Total Income:", this.totalIncome);
 
+    return this.totalIncome;
+  }
+
+  getTotalExpense() {
+    if (this.entries.length === 0) {
+      return 0;
+    }
+
+    this.totalExpense = 0;
+    let entries = this.entries;
+
+    // console.log("All Entries:", entries)
+
+    entries.forEach((element) => {
+      if (element.type === "expense") {
+        this.totalExpense += element.amount;
+      }
+    });
+
+    // console.log("Total Expenses:", this.totalExpense);
+
+    return this.totalExpense;
   }
 
   getCurrentBalance() {
     if (this.entries.length === 0) {
-        return 0;
-      }
-    return this.getTotalIncome() - this.getTotalExpense() 
+      return 0;
+    }
+    
+    
+    console.log("Balance:", this.totalIncome - this.totalExpense)
+    return this.getTotalIncome() - this.getTotalExpense()
+    // return this.totalIncome - this.totalExpense
   }
 }
 
-// const budget = new Budget();
-// const income = new Entry("2024-06-17", 100, "food");
-// const expense = new Entry("2024-06-17", 100, "food", true);
-// budget.addEntry(36);
-// budget.addEntry(2);
+// const myIncome1 = new Income("2024-12-02", 100, "Gehalt");
+// const myIncome2 = new Income("2024-11-02", 149, "Gehalt2");
+// // console.log(myIncome1.amount +  myIncome2.amount)
 
-// console.log(budget.getTotalIncome());
+// const myExpense1 = new Expense("2024-12-02", 50, "Schuhe");
+// // console.log(myExpense1)
+
+// const budget = new Budget();
+// budget.addEntry("income");
+// budget.addEntry("expense");
+// budget.getTotalIncome();
+
+const budget = new Budget();
+const income1 = new Income("2024-06-17", 100, "food");
+const income2 = new Income("2024-06-17", 200, "food");
+const expense = new Expense("2024-06-17", 100, "food", true);
+
+budget.addEntry(income1);
+budget.addEntry(income2);
+budget.addEntry(expense);
+
+budget.getTotalIncome();
+budget.getTotalExpense();
+budget.getCurrentBalance();
