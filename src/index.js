@@ -24,7 +24,7 @@ const type = new Income();
 // Expense
 class Expense extends Income {
     constructor(date, amount, description, paid) {
-        super(date, amount, description);
+        super(date, amount, description, paid);
         this.paid = paid;
         this.type = "expense";
     }
@@ -46,23 +46,25 @@ class Budget {
 
     getTotalIncome() {
         let sum = 0;
-        this.entries.forEach(function(element) {
-            if (this.type === "income") {
-                sum += element;
+        this.entries.forEach((element) => {
+            if (element.type === 'income') {
+                sum += element.amount;
             }
-        })
+        });
         return sum;
     }
 
     getTotalExpense() {
-        if (this.entries.length === 0) {
-            return 0;
-        }
+        let sum = 0;
+        this.entries.forEach((element) => {
+            if (element.type === 'expense') {
+                sum += element.amount;
+            }
+        });
+        return sum;
     }
 
     getCurrentBalance() {
-        if (this.entries.length === 0) {
-            return 0;
-        }
+        return this.getTotalIncome() - this.getTotalExpense();
     }
 }
