@@ -82,7 +82,7 @@ class Budget {
     const result = [];
     this.entries.forEach((entry) => {
       result.push(
-        `${entry.date} ${entry.description} ${
+        `${entry.date} | ${entry.description} | ${
           entry.type === income ? "+" : ""
         }${entry.getFormattedAmount()}`
       );
@@ -90,10 +90,3 @@ class Budget {
     return result;
   }
 }
-
-const budget = new Budget();
-const income1 = new Income("2024-06-17", 100, "food");
-const expense1 = new Expense("2024-06-17", 100, "food", true);
-budget.addEntry(income1);
-budget.addEntry(expense1);
-console.log(budget.getFormattedEntries());

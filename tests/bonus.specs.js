@@ -17,8 +17,8 @@ describe("Budget", () => {
       budget.addEntry(income);
       budget.addEntry(expense);
       expect(budget.getFormattedEntries()).toEqual([
-        "2024-06-17 food +100 €",
-        "2024-06-17 food -100 €",
+        "2024-06-17 | food | +100 €",
+        "2024-06-17 | food | -100 €",
       ]);
     });
 
