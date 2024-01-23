@@ -79,18 +79,13 @@ class Budget {
         return this.getTotal("income")-this.getTotal("expense");
     };
     getTotal(type) {
-        let typeEntries = 0;
         let typeTotal = 0;
 
         this.entries.forEach(function(element) {
             if (element.type === type) {
                 typeTotal += element.amount;
-                typeEntries += 1;
             }
         });
-        if (typeEntries === 0) {
-            return 0;
-        }
         return typeTotal;
     }
     getFormattedEntries() {
