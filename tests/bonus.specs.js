@@ -168,7 +168,7 @@ describe("Entry", () => {
       });
     });
   
-    /*
+    
     describe("getTotalIncome", () => {
       it("should be defined", () => {
         const budget = new Budget();
@@ -243,7 +243,7 @@ describe("Entry", () => {
         );
       });
     });
-    */
+  
 
 
     // Bonus 7
@@ -252,11 +252,61 @@ describe("Entry", () => {
             const budget = new Budget();
             expect(budget.getTotal).toBeDefined();
         })
-
-
-
-        
+        it('Should take one argument (string)', () =>{
+          const budget = new Budget();
+          expect(budget.getTotal.length).toBe(1);
+        });
+        it('Should return the total amount (number) of all entries with the given type', () => {
+          const entries = [{type: 'income', amount: 300}, {type: 'expense', amount: 300}, {type: 'income', amount: 100}];
+          const budget = new Budget(); 
+          entries.forEach((entry)=>{
+            budget.addEntry(entry);
+          })
+          expect(budget.getTotal('income')).toBe(400);
+          console.log(budget.getTotal('income'));
+        })
+        it('Should use the forEach() method to iterate over the array.', () =>{
+          const budget = new Budget();
+        spyOn(budget.entries, "forEach").and.callThrough();
+        budget.getTotalExpense();
+        expect(budget.entries.forEach).toHaveBeenCalled();
+        expect(budget.entries.forEach).toHaveBeenCalledWith(
+          jasmine.any(Function))
+        })   
     })
+
+    describe('Bonus 6 | Get Formatted Entries',() => {
+      it('Should be defined', () => {
+          const budget = new Budget();
+          expect(budget.getFormattedEntries).toBeDefined();
+      })
+      it('Should take no arguments', () =>{
+        const budget = new Budget();
+        expect(budget.getFormattedEntries.length).toBe(0);
+      });
+      it('Should return an array of strings with the formatted entries', () => {
+        const entries = [
+          {date: '01/04/2023', type: 'income', amount: 1300, description: 'salary'},
+          {date: '03/02/2023', type: 'expense', amount: 150, description: 'New shoes'},
+          {date: '03/04/2023', type: 'expense', amount: 70, description: 'Date Night'}
+        ];
+        const budget = new Budget(); 
+        entries.forEach((entry) => {
+          budget.addEntry(entry);
+        });
+        const formattedEntries = budget.getFormattedEntries();
+        expect(formattedEntries).toEqual(['01/04/2023 | salary | +1300 €', '03/02/2023 | New shoes | -150 €', '03/04/2023 | Date Night | -70 €']);
+      });
+      })
+      it('Should use the forEach() method to iterate over the array.', () =>{
+        const budget = new Budget();
+      spyOn(budget.entries, "forEach").and.callThrough();
+      budget.getFormattedEntries();
+      expect(budget.entries.forEach).toHaveBeenCalled();
+      expect(budget.entries.forEach).toHaveBeenCalledWith(
+        jasmine.any(Function))
+      })   
+  })
 
     describe("getCurrentBalance", () => {
       it("should be defined", () => {
@@ -294,5 +344,4 @@ describe("Entry", () => {
         expect(budget2.getCurrentBalance()).toEqual(300);
       });
     });
-  });
   

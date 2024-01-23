@@ -43,36 +43,32 @@ class Budget {
     }
 
 
-    // Bonus 6
+    // Bonus 5
     getTotal(typeOfEntry){
         let sum = 0;
         this.entries.forEach((entry) => {
-            if(typeOfEntry === 'income'){
-                sum+=entry.amount;
-            }
-            else if(typeOfEntry === 'expense'){
+            typeOfEntry 
+            if(entry.type === typeOfEntry){
                 sum+=entry.amount;
             }
         });
         return sum;
     }
 
-    // Bonus 6
-    getFormattedAmount(){
-        arrayIncome = [];
-        arrayExpenses = [];
-
+    // Bonus 6 - Receives an array with objects (entries), and organizes them
+    getFormattedEntries() {
+        let formattedEntries = [];
+    
         this.entries.forEach(entry => {
-            if(entry.type === 'income'){
-                arrayIncome.push(`${entry.date} | ${entry.description} | ${entry.amount} €`)
-            }
-            else if(entry.type === 'expense'){
-                arrayExpenses.push(`${entry.date} | ${entry.description} | ${entry.amount} €`)
-            }
+          if (entry.type === 'income') {
+            formattedEntries.push(`${entry.date} | ${entry.description} | +${entry.amount} €`);
+          } else if (entry.type === 'expense') {
+            formattedEntries.push(`${entry.date} | ${entry.description} | -${entry.amount} €`);
+          }
         });
-
-        return arrayIncome, arrayExpenses
-    }
+    
+        return formattedEntries;
+      }
 
     getTotalIncome(){
         let sum = 0;
