@@ -174,6 +174,7 @@ Implement the `Income` class following the below guidelines. The `Income` class 
 - should take **`amount`** as **2nd argument** and assign it to a **property `amount`**.
 - should take **`description`** as **3rd argument** and assign it to a **property `description`**.
 <br>
+
 - should call the **`super()`** method and correctly pass the arguments to it.
 - should create a **`type` property** and give it a default value of `"income"`.
 
@@ -207,6 +208,7 @@ An `Expense` is an `Entry` with an additional property `type` by default set to 
 - should take **`description`** as **3rd argument** and assign it to a **property `description`**.
 - should take **`paid`** as **4th argument** and assign it to a **property `paid`**.
 <br>
+
 - should call the **`super()`** method and correctly pass the arguments to it.
 - should create a **property `type`** and give it a default value of `"expense"`.
 
