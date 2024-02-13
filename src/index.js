@@ -54,7 +54,7 @@ class Budget {
   }
 
   getTotalExpense() {
-  let totalExpense = 0;
+    let totalExpense = 0;
     this.entries.forEach((entry) => {
       if (entry.type === "expense") {
         totalExpense += entry.amount;
@@ -63,8 +63,11 @@ class Budget {
     return totalExpense;
     // alternative to returning totalExpense -> return this.entries.length > ? totalIncome : 0
   }
-
-   getCurrentBalance() {
-     return this.getTotalIncome() - this.getTotalExpense();
+  getCurrentBalance() {
+    if (this.entries.length === 0) {
+      return 0;
+    } else {
+      return this.getTotalIncome() - this.getTotalExpense();
+    }
   }
 }
