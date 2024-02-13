@@ -61,7 +61,7 @@ class Budget {
       }
     });
     return totalExpense;
-    // alternative to returning totalExpense -> return this.entries.length > ? totalIncome : 0
+    // alternative to returning totalExpense -> return this.entries.length > 0 ? totalIncome : 0
   }
   getCurrentBalance() {
     if (this.entries.length === 0) {
