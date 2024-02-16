@@ -280,4 +280,35 @@ describe("Budget", () => {
       expect(budget2.getCurrentBalance()).toEqual(300);
     });
   });
+  describe("should return the total amount (number) of all entries with the given type" ,() => {
+    it("should be defined", () => {
+      const budget = new Budget();
+      expect(budget.getTotal).toBeDefined();
+    });
+
+    it("should take 1 argument", () => {
+      const budget = new Budget();
+      expect(budget.getTotal.length).toEqual(1)
+    });
+
+    it("should return the total amount (number) of all entries with the given type", () => {
+      const budget = new Budget()
+      const expense1 = new Expense("2024-06-17", 100, "food", true);
+      const income = new Income("2024-06-17", 200, "food");
+      budget.addEntry(expense1)
+      budget.addEntry(income)
+      expect(budget.getTotal(expense1.type)).toEqual(100)
+      expect(budget.getTotal(income.type)).toEqual(200)
+    });
+
+    it("should use forEach() method to iterate over the entries array", () => {
+      const budget = new Budget()
+      spyOn(budget.entries, "forEach").and.callThrough()
+      budget.getTotal()
+      expect(budget.entries.forEach).toHaveBeenCalled()
+      expect(budget.entries.forEach).toHaveBeenCalledWith(
+        jasmine.any(Function)
+      )
+    })
+  })
 });
