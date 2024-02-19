@@ -18,7 +18,6 @@ describe("Entry", () => {
       const entry = new Entry("2024-06-17", 100, "food");
       expect(entry.description).toEqual("food");
     });
-
   });
 
   describe("getFormattedAmount", () => {
@@ -32,7 +31,7 @@ describe("Entry", () => {
       expect(entry.getFormattedAmount.length).toEqual(0);
     });
 
-    it("should return a string with the amount and the € symbol like: \"100 €\"", () => {
+    it('should return a string with the amount and the € symbol like: "100 €"', () => {
       const entry = new Entry("2024-06-17", 100, "food");
       expect(entry.getFormattedAmount()).toEqual("100 €");
     });
@@ -126,7 +125,7 @@ describe("Expense", () => {
       expect(expense.getFormattedAmount.length).toEqual(0);
     });
 
-    it("should return a string with the minus sign, the amount and the € symbol like: \"-99 €\"", () => {
+    it('should return a string with the minus sign, the amount and the € symbol like: "-99 €"', () => {
       const expense1 = new Expense("2024-06-17", 99, "food", true);
       const expense2 = new Expense("2024-06-17", 5, "food", false);
       expect(expense1.getFormattedAmount()).toEqual("-99 €");
