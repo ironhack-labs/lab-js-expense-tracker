@@ -12,7 +12,12 @@ class Entry {
 }
 
 // Income
-class Income {}
+class Income extends Entry {
+  constructor(data, amount, description) {
+    super(data, amount, description);
+    this.type = "income";
+  }
+}
 
 // Expense
 class Expense {}
