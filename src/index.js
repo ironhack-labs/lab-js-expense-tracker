@@ -63,12 +63,8 @@ class Budget {
     };
 
     getCurrentBalance(){
-        let sumBalance = 0;
-        this.entries.forEach((currentBalance) => {
-            if(hh){};
-        });
-
-        return sumIncome - sumExpense;
+     return this.getTotalIncome() - this.getTotalExpense();
+ 
     };
 
 }
