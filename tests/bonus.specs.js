@@ -43,3 +43,33 @@ describe("getTotal", () => {
     expect(budget.entries.forEach).toHaveBeenCalledWith(jasmine.any(Function));
   });
 });
+
+describe("getFormattedEntries", () => {
+  it("should be defined", () => {
+    const budget = new Budget();
+    expect(budget.getFormattedEntries).toBeDefined();
+  });
+  it("should take 0 arguments", () => {
+    const budget = new Budget();
+    expect(budget.getFormattedEntries.length).toEqual(0);
+  });
+
+  it("should return an array of strings with the formatted entries", () => {
+    const budget = new Budget();
+    const income1 = new Income("2024-06-17", 100, "food");
+    const income2 = new Income("2024-06-17", 200, "food");
+    const expense1 = new Expense("2024-06-17", 100, "food", true);
+    const expense2 = new Expense("2024-06-17", 90, "food", false);
+    budget.addEntry(income1);
+    budget.addEntry(income2);
+    budget.addEntry(expense1);
+    budget.addEntry(expense2);
+
+    expect(budget.getFormattedEntries()).toEqual([
+      "2024-06-17 | food | 100 €",
+      "2024-06-17 | food | 200 €",
+      "2024-06-17 | food | -100 €",
+      "2024-06-17 | food | -90 €",
+    ]);
+  });
+});

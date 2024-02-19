@@ -221,10 +221,21 @@ describe("Budget", () => {
       expect(budget.getTotalExpense()).toEqual(0);
     });
 
+    it('should return the total expense of all "expense" entries', () => {
+      const budget = new Budget();
+      const expense1 = new Expense("2024-06-17", 100, "food", true);
+      const expense2 = new Expense("2024-06-17", 200, "food", false);
+      const income = new Income("2024-06-17", 100, "food");
+      budget.addEntry(expense1);
+      budget.addEntry(expense2);
+      budget.addEntry(income);
+      expect(budget.getTotalExpense()).toEqual(300);
+    });
+
     it("should use the 'forEach()' method to iterate over the entries array", () => {
       const budget = new Budget();
       spyOn(budget.entries, "forEach").and.callThrough();
-      budget.getTotal("income");
+      budget.getTotalExpense();
       expect(budget.entries.forEach).toHaveBeenCalled();
       expect(budget.entries.forEach).toHaveBeenCalledWith(
         jasmine.any(Function)
