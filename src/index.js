@@ -63,40 +63,4 @@ class Budget {
 
 
 
-    getTotalExpense() {
-        return this.getTotal('expense')
-    }
-
-
-    getCurrentBalance() {
-        let totalIncome = this.getTotalIncome()
-        let totalExpenses = this.getTotalExpense()
-        return totalIncome - totalExpenses
-    }
-
-    getFormattedEntries() {
-        let formatedArr = []
-        let formatedText;
-        this.entries.forEach(entry => {
-            if(entry.type === "income") {
-                formatedText = `"${entry.date} | ${entry.description} | +${entry.amount}€"`
-                formatedArr.push(formatedText)
-            } else if (entry.type === "expense") {
-                formatedText = `"${entry.date} | ${entry.description} | -${entry.amount}€"`
-                formatedArr.push(formatedText)
-            }
-        })
-        return formatedArr
-    }
-
-
-}
-
-let budget1 = new Budget()
-
-budget1.entries.push(new Income(new Date().toLocaleTimeString(), 22, 'interest'))
-budget1.entries.push(new Expense(new Date().toLocaleTimeString(), 33, 'lunch', false))
-budget1.entries.push(new Income(new Date().toLocaleTimeString(), 44, 'paycheck'))
-
-// console.log(budget1.entries)
-console.log(budget1.getFormattedEntries())
+  
