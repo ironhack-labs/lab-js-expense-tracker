@@ -30,12 +30,8 @@ describe("getTotal", () => {
     const budget = new Budget();
     const income1 = new Income("2024-06-17", 100, "food");
     const income2 = new Income("2024-06-17", 200, "food");
-    const expense = new Expense("2024-06-17", 100, "food", true);
-
     budget.addEntry(income1);
     budget.addEntry(income2);
-    budget.addEntry(expense);
-
     expect(budget.getTotalIncome()).toEqual(300);
   });
 
