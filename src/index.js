@@ -4,7 +4,6 @@ class Entry {
     this.date = date; //binding 'date' to the class of Entry
     this.amount = amount;
     this.description = description;
-    console.log(date);
   }
   getFormattedAmount() {
     return `${this.amount} €`;
@@ -14,8 +13,8 @@ class Entry {
 // Income
 class Income extends Entry {
   constructor(date, amount, description) {
-    super(date, amount, description);
-    this.type = "income";
+    super(date, amount, description); //inherit attributes from the Entry class
+    this.type = "income"; //create new attribute specific to Income class
   }
 }
 
