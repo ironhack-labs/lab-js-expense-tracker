@@ -1,9 +1,10 @@
 // Entry
 class Entry {
   constructor(date, amount, description) {
-    this.date = date;
+    this.date = date; //binding 'date' to the class of Entry
     this.amount = amount;
     this.description = description;
+    console.log(date);
   }
   getFormattedAmount() {
     return `${this.amount} €`;
