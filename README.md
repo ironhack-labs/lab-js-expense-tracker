@@ -236,11 +236,9 @@ We are almost there! We are going to create a `Budget` class that will help us s
 
 
 
-Add the following 4 methods to the `Budget` class:
+Add the following methods to the `Budget` class:
 
 - `addEntry()`
-- `getTotalIncome()`
-- `getTotalExpense()`
 - `getCurrentBalance()`
 
 
@@ -276,37 +274,6 @@ Adds 1 entry (income or expense) to the `entries` array. Here are the requiremen
 <br>
 
 
-
-#### `getTotalIncome()` method
-
-Returns the total amount (number) of all incomes (entries with `type` of `"income"`).
-
-
-
-- should be a defined
-- should take **0 arguments**
-- should return **the sum (number) of all incomes**
-- should **use the `forEach()` method** to iterate over the `entries` array
-
-<br>
-
-
-
-#### `getTotalExpense()` method
-
-Returns the total amount (number) of all expenses (entries with `type` of `"expense"`).
-
-
-
-- should be a defined
-- should take **0 arguments**
-- should return **the sum (number) of all expenses**
-- should **use the `forEach()` method** to iterate over the `entries` array
-
-<br>
-
-
-
 #### `getCurrentBalance()` method
 
 Returns the balance of the budget (total income - total expenses).
@@ -322,39 +289,15 @@ Returns the balance of the budget (total income - total expenses).
 
 
 
-### Bonus: Iteration 5 | Get total by type
+### Bonus: Iteration 5 | Get Formatted Entries
 
-As you may have noticed, methods `getTotalIncome()` and `getTotalExpense()` have a lot of repeated code. This makes them good candidates for refactoring.
-
-Let's refactor them and fix this by implementing a new method `getTotal(type)` that will take the string `type` (either `"income"` or `"expense"`) as an argument and return the total amount (number) of all entries with the given type.
-
-
-
-#### `getTotal()` method
-
-Returns the total amount (number) of all entries with the given type.
-
-
-
-- should be a defined
-- should take **1 argument** (a string with the type of entry)
-- should return **the total amount (number) of all entries with the given type**
-- should **use the `forEach()` method** to iterate over the `entries` array
-
-<br>
-
-
-
-### Bonus: Iteration 6 | Get Formatted Entries
-
-Implement the `getFormattedEntries()` method that returns an array of strings with the formatted entries. The format of the string should be as follows:
+Implement the `getFormattedEntries()` method, on the `Budget` class, that returns an array of strings with the formatted entries. The format of the string should be as follows:
 
 - For incomes:  `"DATE | DESCRIPTION | +AMOUNT €"`
 
 - For expenses: `"DATE | DESCRIPTION | -AMOUNT €"`
 
 <br>
-
 
 
 #### `getFormattedEntries()` method
@@ -366,18 +309,6 @@ Returns an array of strings with the formatted entries.
 - should return an array of strings with the formatted entries
 - should **use the `forEach()` method** to iterate over the `entries` array
 
-<br>
-
-
-
-### Bonus: Iteration 7 | Unit Tests
-
-We have a real treat for you for the last bonus iteration! It is your turn to write the unit tests for the new methods `getTotal()` and `getFormattedEntries()` you just implemented. You should write the tests in the `tests/bonus.spec.js` file.
-
-
-
-
-You should use the method requirement descriptions from the two previous iterations and the tests in the `tests/index.spec.js` file as guides to write the tests for the new methods. You got this! :muscle:
 
 <br>
 
