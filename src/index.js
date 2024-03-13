@@ -1,11 +1,35 @@
-// Entry
-class Entry {}
+class Budget {
+  constructor() {
+    this.entries = [];
+  }
 
-// Income
-class Income {}
+  addEntry(newEntry) {
+    this.entries.push(newEntry);
+  }
 
-// Expense
-class Expense {}
+  getTotalIncome() {
+    let totalIncome = 0;
+    this.entries.forEach(entry => {
+      if (entry instanceof Income) {
+        totalIncome += entry.amount;
+      }
+    });
+    return totalIncome;
+  }
 
-// Budget
-class Budget {}
+  getTotalExpense() {
+    let totalExpense = 0;
+    this.entries.forEach(entry => {
+      if (entry instanceof Expense) {
+        totalExpense += entry.amount;
+      }
+    });
+    return totalExpense;
+  }
+
+  getCurrentBalance() {
+    const totalIncome = this.getTotalIncome();
+    const totalExpense = this.getTotalExpense();
+    return totalIncome - totalExpense;
+  }
+}
