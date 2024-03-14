@@ -50,33 +50,31 @@ class Budget {
     let sum = 0;
 
     this.entries.forEach(function (entry) {
-      if ((entry.type === "income")) {
+      if (entry.type === "income") {
         sum += entry.amount;
-        } else if (entry.type === "expense") {
-            sum -= entry.amount;
+      } else if (entry.type === "expense") {
+        sum -= entry.amount;
       }
     });
 
     return sum;
-    }
-    
-    getFormattedEntries() {
-        
-        let formattedValue = []; 
+  }
 
-        this.entries.forEach(function (entry) {
-                  if (entry.type === "income") {
-                    formattedValue.push(
-                      `${entry.date} | ${entry.description} | ${entry.amount} €`);
-                  } else if (entry.type === "expense") {
-                    formattedValue.push(
-                      `${entry.date} | ${entry.description} | -${entry.amount} €`);
-                  }           
+  getFormattedEntries() {
+    let formattedValue = [];
 
-        });
-        console.log(formattedValue);
-        return formattedValue; 
+    this.entries.forEach(function (entry) {
+      if (entry.type === "income") {
+        formattedValue.push(
+          `${entry.date} | ${entry.description} | ${entry.amount} €`
+        );
+      } else if (entry.type === "expense") {
+        formattedValue.push(
+          `${entry.date} | ${entry.description} | -${entry.amount} €`
+        );
+      }
+    });
+    console.log(formattedValue);
+    return formattedValue;
+  }
 }
-
-}
-
