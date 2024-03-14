@@ -12,8 +12,6 @@ class Entry {
 }
 const moneyEntry = new Entry("14-03-2024", 50, "Gift");
 const amountEntry = moneyEntry.getFormattedAmount();
-console.log (moneyEntry);
-console.log (amountEntry);
 
 // Income
 class Income extends Entry {
@@ -25,8 +23,6 @@ class Income extends Entry {
 
 const moneyIncome = new Income("16-04-2024", 2000, "Salary" );
 const amountIncome = moneyIncome.getFormattedAmount();
-console.log(moneyIncome);
-console.log (amountIncome);
 
 // Expense
 class Expense extends Entry {
@@ -41,8 +37,6 @@ class Expense extends Entry {
 }
 const moneyExpense = new Expense("01-05-2024", 700, "Rent", "Paid" );
 const amountExpense = moneyExpense.getFormattedAmount();
-console.log(moneyExpense);
-console.log (amountExpense);
 
 
 // Budget
