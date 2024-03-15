@@ -33,4 +33,27 @@ class Expense extends Entry{
   }
 
 // Budget
-class Budget {}
+class Budget {
+  constructor(){
+    this.entries = [];
+  }
+  addEntry(entry){
+    this.entries.push(entry);
+  }
+  getCurrentBalance(){
+    let addBalance = 0;
+    if (this.entries.length == 0){
+      return 0;
+    }
+    for (let i=0 ; i<entries.length ; i++) {
+      if (entries[i].entry === "income"){
+        addBalance += entries[i].amount;
+      }
+      else if (entries[i] === "expense"){
+        addBalance -= entries[i].amount;
+      }
+    };
+    return addBalance;
+  }
+
+}
