@@ -33,40 +33,36 @@ class Expense extends Entry {
 
 // Budget
 class Budget {
-    constructor (){
+    constructor() {
         this.entries = [];
     }
-    getCurrentBalance(){
-        let balance = 0; 
-        for (const entry of this.entries) {
-            // Check the type of each entry to determine if you should add or subtract the amount
-            if (entry.type === "income") {
-                balance += entry.amount; // Add income
-            } else if (entry.type === "expense") {
-                balance -= entry.amount; // Subtract expenses
-            }
-        }
-        return balance; 
+
+    getTotalIncome() {
+        // Filter entries for income, then sum up the amounts
+        return this.entries
+            .filter(entry => entry.type === "income")
+            .reduce((total, entry) => total + entry.amount, 0); // Start sum from 0
     }
 
+    getTotalExpense() {
+        // Filter entries for expense, then sum up the amounts
+        return this.entries
+            .filter(entry => entry.type === "expense")
+            .reduce((total, entry) => total + entry.amount, 0); // Start sum from 0
+    }
 
-    addEntry(entry){
+    getCurrentBalance() {
+        return this.getTotalIncome() - this.getTotalExpense();
+    }
+
+    addEntry(entry) {
         if (entry.type === "income" || entry.type === "expense") {
             this.entries.push(entry);
         }
     }
 
-    getFormattedEntries(){
-        const formattedEntries = [];
-        this.entries.forEach(entry => {
-            
-            if (entry.type === "income") {
-                formattedEntries.push(`${entry.date} | ${entry.description} | ${entry.amount} €`); 
-            } else if (entry.type === "expense") {
-                formattedEntries.push(`${entry.date} | ${entry.description} | -${entry.amount} €`);
-            }
+    getFormattedEntries() {
+        return this.entries.map(entry => `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`);
+    }
+}
 
-            });
-        return formattedEntries;
-}
-}
