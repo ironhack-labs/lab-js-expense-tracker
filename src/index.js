@@ -58,7 +58,7 @@ class Budget {
   getFormattedEntries() {
     let formattedEntries = this.entries.map((entry) => {
       const formattedAmount =
-        entry.type === "income" ? `+${entry.amount} €` : `-${entry.amount} €`;
+        entry.type === "income" ? `${entry.amount} €` : `-${entry.amount} €`;
 
       return `${entry.date} | ${entry.description} | ${formattedAmount}`;
     });
