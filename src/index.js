@@ -26,7 +26,7 @@ class Expense extends Entry {
     this.paid = paid;
   }
   getFormattedAmount() {
-    return `${-this.amount} €`;
+    return `-${this.amount} €`;
   }
 }
 
