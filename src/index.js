@@ -45,13 +45,12 @@ class Budget {
 
     getCurrentBalance() {  
 
-        if (balance = []) {
+        if (this.entries.length === 0) {
             return 0
         }
     
+        else
+        return (Income.amount - Expense.amount)
+        
     }
-
 }
-
-
-
