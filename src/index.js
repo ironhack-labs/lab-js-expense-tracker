@@ -64,7 +64,7 @@ class Budget {
     this.entries.forEach((entry) => {
       let formattedEntry = `${entry.date} | ${entry.description} | `;
       formattedEntry +=
-        entry instanceof Income ? `+${entry.amount} €` : `-${entry.amount} €`;
+        entry.type === "income" ? `+${entry.amount} €` : `-${entry.amount} €`;
       formattedEntries.push(formattedEntry);
     });
     return formattedEntries;
