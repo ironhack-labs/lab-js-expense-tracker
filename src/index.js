@@ -59,26 +59,14 @@ class Budget {
             return total
         }
     }
-    getFormattedEntries() {
-        // For expenses: "DATE | DESCRIPTION | -AMOUNT €"
-        // For incomes: "DATE | DESCRIPTION | +AMOUNT €"
 
-        let totalIncome = 0
-        let totalExpenses = 0
+    getFormattedEntries() {
         let arr = []
 
         this.entries.forEach((e) => {
-            if (e.type === "income") {
-                totalIncome += e.amount
-                let phrase = `${e.date} | ${e.description} | ${totalIncome} €`
-                arr.push(phrase)
-            } if (e.type === "expense") {
-                totalExpenses -= e.amount
-                let phrase = `${e.date} | ${e.description} | ${totalExpenses} €`
-                arr.push(phrase)
-            }
-
-            return arr
+            let phrase = `${e.date} | ${e.description} | ${e.getFormattedAmount()}`
+            arr.push(phrase)
         })
+        return arr
     }
 }
