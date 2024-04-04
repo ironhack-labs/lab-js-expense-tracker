@@ -14,7 +14,7 @@ class Entry {
 class Income extends Entry {
     constructor(date, amount, description) {
         super(date, amount, description);
-        this.type = "income";
+        this.type = "income"; // is not inherited or passed as argument
     }
 }
 
@@ -23,7 +23,7 @@ class Expense extends Entry {
     constructor(date, amount, description, paid) {
         super(date, amount, description);
         this.type = "expense";
-        this.paid = paid;
+        this.paid = paid; // is true or false value
     }
     getFormattedAmount(){
         return `-${this.amount} €`
@@ -48,4 +48,12 @@ class Budget {
         })
         return totalIncome-totalExpenses;
     }
+    getFormattedEntries(){
+        let formattedEntries = [];
+        this.entries.forEach((entry) => {
+            if(entry.type === "expense") formattedEntries.push(`${entry.date} | ${entry.description} | -${entry.amount} €`);
+            if(entry.type === "income") formattedEntries.push(`${entry.date} | ${entry.description} | ${entry.amount} €`);
+        })
+        return formattedEntries;
+    } 
 }
