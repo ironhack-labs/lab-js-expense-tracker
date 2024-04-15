@@ -58,21 +58,21 @@ class Budget {
     getCurrentBalance() {
         // console.log(this.entries)
         // clausula de guardia: controlamos si el amount de entrada es 0
-        if (this.entries[i].length === 0){
+        if (this.entries.length === 0){
             return 0
         }
         //si no es 0 iteramos por el array
-        let sumIncome 
-        let sumExpense
+        let sumIncome = 0
+        let sumExpense = 0
         for ( let i = 0; i < this.entries.length; i++ ) {
 
-            if (this.entries[i].type === "income") {
-                sumIncome +=  this.entries[i].amount
-            }else if (this.entries[i].type === "expense") {
-                sumExpense +=  this.entries[i].amount
+            if (this.entries.type === "income") {
+                sumIncome +=  this.entries.amount
+            }else if (this.entries.type === "expense") {
+                sumExpense +=  this.entries.amount
             }  
         }
-        let balance = sumIncome + sumExpense
+        let balance = sumIncome - sumExpense
         return balance
 
     }
