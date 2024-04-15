@@ -49,10 +49,10 @@ class Budget {
       let totalIncome = 0
       let totalExpenses = 0
       this.entries.forEach((eachEntry) => {
-        if (eachEntry === totalExpenses) {
-          totalExpenses += eachEntry
-        } else if (eachEntry === totalIncome) {
-          totalIncome += eachEntry
+        if (eachEntry.type === "income") {
+          totalIncome += eachEntry.amount
+        } else if (eachEntry.type === "expense") {
+          totalExpenses += eachEntry.amount
         }
       })
       return totalIncome - totalExpenses
