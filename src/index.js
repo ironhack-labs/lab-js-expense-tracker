@@ -11,8 +11,7 @@ class Entry {
     }
 
     getFormattedEntry() {
-        // "2024-06-17 | other | 10 €"
-        return 
+        return `${this.date} | ${this.description} | ${this.getFormattedAmount()}`;
     }
 }
 
