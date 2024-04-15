@@ -41,7 +41,7 @@ class Budget {
     getCurrentBalance(){
         let cuenta=0
         this.entries.forEach((element)=>{
-            console.log(element)
+            //console.log(element)
             if(element.type==="income"){
                 cuenta+=element.amount
             }else{
