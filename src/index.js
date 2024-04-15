@@ -49,14 +49,18 @@ class Budget {
     }
 
     getCurrentBalance(){
-        let totalIncome = this.entries
-      .filter(entry => entry.type === "income")
-      .reduce((acc, curr) => acc + curr.amount, 0);
-    let totalExpenses = this.entries
-      .filter(entry => entry.type === "expense")
-      .reduce((acc, curr) => acc + curr.amount, 0);
-    return totalIncome - totalExpenses;
-
+        let totalIncome = 0;
+        let totalExpenses = 0;
+    
+        for (let entry of this.entries) {
+          if (entry.type === "income") {
+            totalIncome += entry.amount;
+          } else if (entry.type === "expense") {
+            totalExpenses += entry.amount;
+          }
+        }
+    
+        return totalIncome - totalExpenses;
     }
 
 }
