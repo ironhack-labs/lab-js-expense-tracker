@@ -1,3 +1,4 @@
+//labs
 // Entry
 class Entry {
   constructor(date, amount, description) {
