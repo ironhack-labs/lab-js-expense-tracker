@@ -42,14 +42,24 @@ class Budget {
         this.entries = []
     }
     addEntry(Expense){
-        this.entry = this.entries.push(Expense);
+        this.entries.push(Expense);
     }
     getCurrentBalance(){
-        if(!this.entry){
-            return 0;
-        }else{
-            return this.entries.Income - this.entries.Expense;
+        let currentBalance = 0;
+        for(const entry of this.entries){
+            if(entry.type === "expense"){
+                currentBalance -= entry.amount;
+            }else{
+                currentBalance += entry.amount;
+            }
         }
+        return currentBalance;
 
     }
 }
+
+
+const budget = new Budget();
+const expense1 = new Expense('12/04/2024', 200, '');
+budget.addEntry(expense1);
+console.log(budget.entries);
