@@ -40,9 +40,6 @@ class Budget {
         this.entries.push(entry);
     }
     getCurrentBalance() {
-        if(!this.entries.length) {
-            return 0;
-        }
         let balance = 0;
         this.entries.forEach(entry => {
             entry.type === 'income' ? balance += entry.amount : balance -= entry.amount;
