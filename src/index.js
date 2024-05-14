@@ -55,6 +55,21 @@ class Budget {
     }
     return balance;
   }
+
+// OR
+// getCurrentBalance() {
+//   let sum=0;
+//   this.entries.forEach((entry) => {
+//     if (entry.type === "income") {
+//       sum += entry.amount;
+//     }
+//     else{
+//       sum -= entry.amount;
+//     }
+//   });
+//   return sum;
+// }
+
   getFormattedEntries() {
     let formattedEntries = [];
     for (let i = 0; i < this.entries.length; i++) {
@@ -84,3 +99,5 @@ budget1.addEntry(expense2);
 console.log(budget1.getCurrentBalance());
 console.log();
 console.log(budget1.getFormattedEntries());
+
+
