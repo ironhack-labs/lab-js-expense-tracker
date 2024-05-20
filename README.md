@@ -202,7 +202,7 @@ An `Expense` is an `Entry` with an additional property `type` by default set to 
 
 #### constructor
 
-- should take **4 arguments** (date, amount, description, category)
+- should take **4 arguments** (date, amount, description, paid)
 - should take **`date`** as **1st argument** and assign it to a **property `date`**.
 - should take **`amount`** as **2nd argument** and assign it to a **property `amount`**.
 - should take **`description`** as **3rd argument** and assign it to a **property `description`**.
