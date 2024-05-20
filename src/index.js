@@ -22,12 +22,11 @@ class Income extends Entry {
 class Expense extends Entry {
   constructor(date, amount, description, paid) {
     super(date, amount, description);
-    this.paid = paid;
     this.type = "expense";
+    this.paid = paid;
   }
   getFormattedAmount() {
-    const FormattedAmount = `-${this.amount} €`;
-    return FormattedAmount;
+    return `-${this.amount} €`;
   }
 }
 // Budget
@@ -43,17 +42,18 @@ class Budget {
       return 0;
     }
 
-    let balance = 0;
+    let totalExpense = 0;
+    let totalIncome = 0;
 
     for (const entry of this.entries) {
       if (entry.type === "income") {
-        balance += entry.amount;
+        totalIncome += entry.amount;
       } else if (entry.type === "expense") {
-        balance -= entry.amount;
+        totalExpense += entry.amount;
       }
     }
 
-    return balance;
+    return totalIncome - totalExpense;
   }
   getFormattedEntries() {
     const FormattedEntries = [];
