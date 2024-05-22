@@ -26,7 +26,7 @@ class Expense extends Entry {
     this.type = "expense";
   }
   getFormattedAmount() {
-    return `-${this.amount} €`;
+    return `-${this.amount} €`; // Could be as well `-${super.getFormattedAmount()}`
   }
 }
 
@@ -55,11 +55,25 @@ class Budget {
     }
     return totalIncome - totalExpenses;
   }
+  /**
+   * Could be also if (!this.entries.length) {return 0}
+   * let balance = 0
+   * for (const entry of this.entries) {
+   * if (entry instanceof Expense) {
+   * balance -= entry.amount
+   * } else {
+   * balance += entry.amount}
+   * return balance
+   * }
+   */
+
   getFormattedEntries() {
-    if (Entry === Income) {
-      return `${this.Entry.date} ⎜ ${this.Entry.description} ⎜ ${this.Income.getFormattedAmount}`;
-    } else {
-      return `${this.Entry.date} ⎜ ${this.Entry.description} ⎜ ${this.Expense.getFormattedAmount}`;
-    }
+    const result = [];
+    this.entries.forEach((entry) => {
+      result.push(
+        `${entry.date} ⎜ ${entry.description} ⎜ ${entry.getFormattedAmount()}`
+      );
+    });
+    return result;
   }
 }
