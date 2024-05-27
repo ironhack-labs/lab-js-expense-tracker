@@ -54,21 +54,18 @@ class Budget {
         total += entry.amount;
       }
     });
-    return total
+    return total;
   }
   getCurrentBalance() {
     return this.getTotalIncome() - this.getTotalExpense();
-
   }
 
-  getFormattedEntries() { 
-    let formattedEntries = []
-    this.entries.forEach(entry => {
-        formattedEntries.push(
-            `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`
-        )
-        
+  getFormattedEntries() {
+    let formattedEntries = [];
+    this.entries.forEach((entry) => {
+      formattedEntries.push(
+        `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`
+      );
     });
-    return formattedEntries
   }
 }
