@@ -51,19 +51,14 @@ class Budget {
     });
     return totalIncome - totalExpenses;
   }
+
+  getFormattedEntries() {
+    return this.entries.map((entry) => {
+      if (entry.type === "income") {
+        return `${entry.date} | ${entry.description} | ${entry.amount} €`;
+      } else {
+        return `${entry.date} | ${entry.description} | -${entry.amount} €`;
+      }
+    });
+  }
 }
-const myBudget = new Budget();
-
-const income1 = new Income("2024-06-01", 1000, "Salary");
-const income2 = new Income("2024-06-15", 500, "Freelance Work");
-
-const expense1 = new Expense("2024-06-05", 200, "Groceries", true);
-const expense2 = new Expense("2024-06-10", 100, "Utilities", true);
-
-myBudget.addEntry(income1);
-myBudget.addEntry(income2);
-myBudget.addEntry(expense1);
-myBudget.addEntry(expense2);
-
-console.log("Current Balance:");
-console.log(myBudget.getCurrentBalance());
