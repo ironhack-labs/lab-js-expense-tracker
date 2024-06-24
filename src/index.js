@@ -43,9 +43,13 @@ class Budget {
   }
 
   getCurrentBalance() {
-    return this.entries.reduce((acc, entry) => {
-      return entry.type === "income" ? acc + entry.amount : acc - entry.amount;
-    }, 0);
+    const totalIncome = this.entries
+      .filter((entry) => entry.type === "income")
+      .reduce((acc, entry) => acc + entry.amount, 0);
+    const totalExpense = this.entries
+      .filter((entry) => entry.type === "expense")
+      .reduce((acc, entry) => acc + entry.amount, 0);
+    return totalIncome - totalExpense;
   }
 
   getFormattedEntries() {
