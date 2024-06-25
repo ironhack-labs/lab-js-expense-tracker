@@ -75,21 +75,17 @@ class Budget {
     return this.totalBalance;
   }
 
-  getFormattedEntries() {
-    const formattedEntries = "";
-  }
-
   getFormattedAmount() {
     const formattedArr = [];
 
-    for (let i = 0; i < this.entries.length; i++) {
+    for (let i = 0; i < this.entries.length; i++) {g
       if (this.entries[i].type === "income") {
         formattedArr.push(
-          `${number.date} | ${number.description} | ${number.amount} €`
+          `${this.entries[i].date} | ${this.entries[i].description} | ${this.entries[i].amount} €`
         );
       } else {
         formattedArr.push(
-          `${number.date} | ${number.description} | -${number.amount} €`
+          `${this.entries[i].date} | ${this.entries[i].description} | -${this.entries[i].amount} €`
         );
       }
     }
