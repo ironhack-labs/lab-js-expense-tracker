@@ -44,6 +44,7 @@ class Budget {
     }
     getCurrentBalance() {
         if (this.entries.length === 0) {
+            // (!this.entries.length === 0) means the budget is empty 
             return 0;
         }
         return this.entries.reduce((acc, entry) => {
@@ -52,7 +53,7 @@ class Budget {
             } else {
                 return acc + entry.amount;
             }
-        }, 0)
+        }, 0) // by passing this 0 as the initial value, the reduce function starts with 0 and checks if the current entry is an expense or a number (income)
     }
 
     getFormattedEntries() {
