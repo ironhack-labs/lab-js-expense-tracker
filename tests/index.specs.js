@@ -197,7 +197,6 @@ describe("Budget", () => {
       budget1.addEntry(expense1);
       budget1.addEntry(expense2);
       expect(budget1.getCurrentBalance()).toEqual(-200);
-
       budget2.addEntry(income1);
       budget2.addEntry(income2);
       budget2.addEntry(expense1);
