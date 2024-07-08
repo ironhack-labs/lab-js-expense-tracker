@@ -60,4 +60,17 @@ class Budget {
         })
         return balance
     }
+    getFormattedEntries() {
+        let entriesArray = []
+
+        this.entries.forEach((eachObject) => {
+            if (eachObject.type === "income") {
+                entriesArray.push(`${eachObject.date} | ${eachObject.description} | ${eachObject.amount} €`)
+
+            } else if (eachObject.type === "expense") {
+                entriesArray.push(`${eachObject.date} | ${eachObject.description} | -${eachObject.amount} €`)
+            }
+        })
+        return entriesArray
+    }
 }
