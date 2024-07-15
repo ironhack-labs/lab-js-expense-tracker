@@ -55,7 +55,7 @@ class Budget {
     return balance;
   }
 
-  getFormattedEntries() {
+  /* getFormattedEntries() {
     let result = [];
     this.entries.forEach((element) => {
       if (element.type === "income") {
@@ -69,5 +69,15 @@ class Budget {
       }
     });
     return result;
+  } */
+
+  getFormattedEntries() {
+    const formattedEntries = [];
+    this.entries.forEach((entry) => {
+      formattedEntries.push(
+        `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()} `
+      );
+    });
+    return formattedEntries;
   }
 }
