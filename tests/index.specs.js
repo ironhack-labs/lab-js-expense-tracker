@@ -192,10 +192,10 @@ describe("Budget", () => {
       const expense1 = new Expense("2024-06-17", 100, "food", true);
       const expense2 = new Expense("2024-06-17", 500, "food", false);
 
-      budget1.addEntry(income1);
-      budget1.addEntry(income2);
-      budget1.addEntry(expense1);
-      budget1.addEntry(expense2);
+      budget1.addEntry(income1);  // +200
+      budget1.addEntry(income2);  // +200
+      budget1.addEntry(expense1); // -100
+      budget1.addEntry(expense2); // -500
       expect(budget1.getCurrentBalance()).toEqual(-200);
 
       budget2.addEntry(income1);
