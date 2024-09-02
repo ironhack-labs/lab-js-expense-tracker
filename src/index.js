@@ -42,17 +42,23 @@ class Budget {
     if (this.entries.length == 0) {
       return 0;
     } else {
-      let result = 0;
-      for (let i = 0; i < this.entries.length; i++) {
-        result = result + this.entries[i];
-      }
-      return result - Expense.amount;
+      const totalIncome = this.entries
+        .filter((entry) => entry.type === "income")
+        .reduce((sum, income) => sum + income.amount, 0);
+      const totalExpense = this.entries
+        .filter((entry) => entry.type === "expense")
+        .reduce((sum, expense) => sum + expense.amount, 0);
+      return totalIncome - totalExpense;
     }
   }
   getFormattedEntries() {
-    for (let i = 0; i < this.entries.length; i++) {
-      return `${this.entries[i][1]} | ${this.entries[i][2]} | ${this.entries[i][3]} €`;
-    }
+    const formattedEntries = [];
+    this.entries.forEach((entry) => {
+      formattedEntries.push(
+        `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`
+      );
+    });
+    return formattedEntries;
   }
 }
 
