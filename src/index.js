@@ -45,9 +45,36 @@ class Expense extends Entry {
   getFormattedAmount() {
 
     return `-${this.amount} €`
-
   }
 }
 
 // Budget
-class Budget {}
+class Budget {
+
+  constructor() {
+    this.entries = [];
+  }
+
+  addEntry(entry) {
+    this.entries.push(entry)
+  }
+
+  getCurrentBalance() {
+
+    let currentBalance = 0
+
+    for (let i = 0; i < this.entries.length; i++) {
+      let entry = this.entries[i];
+
+      if (entry.type === "income") {
+        currentBalance += entry.amount;
+      } else if (entry.type === "expense") {
+        currentBalance -= entry.amount;
+      }
+    }
+
+    return currentBalance
+  }
+
+  
+}
