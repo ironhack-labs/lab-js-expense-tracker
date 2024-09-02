@@ -1,26 +1,21 @@
 // Entry
 class Entry {
-
   constructor(date, amount, description) {
-
     this.date = date;
     this.amount = amount;
     this.description = description;
   }
 
   getFormattedAmount() {
-
-    return `${this.amount} €`
+    return `${this.amount} €`;
   }
 }
 
 // Income
 // --> Income is a subclass of Entry
 class Income extends Entry {
-
   constructor(date, amount, description) {
-
-    super(date, amount, description)
+    super(date, amount, description);
 
     this.type = "income";
   }
@@ -28,37 +23,31 @@ class Income extends Entry {
 
 // Expense
 class Expense extends Entry {
-
   constructor(date, amount, description, paid) {
-
-    super(date, amount, description)
+    super(date, amount, description);
 
     this.paid = Boolean(paid);
 
     this.type = "expense";
-    
   }
 
   getFormattedAmount() {
-
-    return `-${this.amount} €`
+    return `-${this.amount} €`;
   }
 }
 
 // Budget
 class Budget {
-
   constructor() {
     this.entries = [];
   }
 
   addEntry(entry) {
-    this.entries.push(entry)
+    this.entries.push(entry);
   }
 
   getCurrentBalance() {
-
-    let currentBalance = 0
+    let currentBalance = 0;
 
     for (let i = 0; i < this.entries.length; i++) {
       let entry = this.entries[i];
@@ -70,17 +59,16 @@ class Budget {
       }
     }
 
-    return currentBalance
+    return currentBalance;
   }
 
   getFormattedEntries() {
-    let formattedEntries = []
+    let formattedEntries = [];
 
-    for (let i = 0;  i < this.entries.length; i++) {
+    for (let i = 0; i < this.entries.length; i++) {
+      let entry = this.entries[i]; // same above
+      let formattedEntry = "";
 
-      let entry = this.entries[i] // same above
-      let formattedEntry = ""
-      
       if (entry.type === "income") {
         formattedEntry = `${entry.date} | ${entry.description} | +${entry.amount} €`;
       } else if (entry.type === "expense") {
@@ -90,6 +78,6 @@ class Budget {
       formattedEntries.push(formattedEntry);
     }
 
-    return formattedEntries
+    return formattedEntries;
   }
 }
