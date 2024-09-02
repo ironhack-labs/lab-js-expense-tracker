@@ -57,5 +57,16 @@ class Budget {
     }
       return totalIncome - totalExpenses;
     }
-  }
 
+  //Bonus - Get Formatted Entries
+  getFormattedEntries(){
+    let formatterEntries = [];
+    for (let i = 0; i < this.entries.length; i++){
+      formatterEntries.push(`${this.entries[i].date} | ${this.entries[i].description} | ${this.entries[i].getFormattedAmount()}`);
+    }
+    console.log(formatterEntries)
+    return formatterEntries;
+  }
+}
+
+  
