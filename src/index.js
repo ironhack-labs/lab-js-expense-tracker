@@ -82,7 +82,7 @@ class Budget {
     for (let i = 0;  i < this.entries.length; i++) {
 
       let entry = this.entries[i] // same above
-      let fromattedEntry = ""
+      let formattedEntry = ""
       
       if (entry.type === "income") {
         formattedEntry = `${entry.date} | ${entry.description} | +${entry.amount} €`;
@@ -90,7 +90,7 @@ class Budget {
         formattedEntry = `${entry.date} | ${entry.description} | -${entry.amount} €`;
       }
 
-      formattedEntries.push(fromattedEntry);
+      formattedEntries.push(formattedEntry);
     }
 
     return formattedEntries
