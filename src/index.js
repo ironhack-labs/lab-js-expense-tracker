@@ -45,21 +45,21 @@ class Budget {
         if(this.entries.length === 0){
             return 0;
         }
-        let balanceAmount= 0;
-        let balanceExpence= 0;
+        let totalIncome= 0;
+        let totalExpenses= 0;
         for(let entry of this.entries){
             if(this.type === "income"){
-                balanceAmount+= this.amount;
+                totalIncome+= this.amount;
             } else if(this.type === "expense"){
-                balanceExpence += this.amount;
+                totalExpenses += this.amount;
             }
         }
-        return balanceAmount-balanceExpence;
+        return totalIncome-totalExpenses;
        
 
         }
         getFormattedEntries(){
-            return
+            return `${this.date} | ${this.description} | `
         }
     }
    
