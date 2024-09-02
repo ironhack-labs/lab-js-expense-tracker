@@ -85,6 +85,19 @@ getCurrentBalance() {
 }
 getFormattedEntries(){
 
+    for(let i =0; i<this.entries.length; i++){
 
+       let entryF = this.entries[i]
+
+       if(this.entries.type==="income"){
+
+        return this.date+ " | "+ this.description +  "|" + this.amount + " €"
+       }else {
+
+        return this.date+ " | "+ this.description +  "|" + "-"+this.amount + " €"
+
+       }
+
+    }
 }
 }
