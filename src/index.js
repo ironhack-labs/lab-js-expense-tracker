@@ -12,11 +12,21 @@ class Entry {
 
     return `${this.amount} €`
   }
-
 }
 
 // Income
-class Income {}
+// --> Income is a subclass of Entry
+class Income extends Entry {
+
+  constructor(date, amount, description) {
+
+    super(date, amount, description)
+
+    this.type = "income"
+
+
+  }
+}
 
 // Expense
 class Expense {}
