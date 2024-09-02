@@ -29,14 +29,11 @@ class Income extends Entry {
 // Expense
 class Expense extends Entry {
 
-  // Jasmine test missing 4 arguments (date, amount, description paid)
-  // Jasmine test missing 'paid' boolean as 4th argument...
-
-  constructor(date, amount, description) {
+  constructor(date, amount, description, paid) {
 
     super(date, amount, description)
 
-    this.paid = true;
+    this.paid = Boolean(paid);
 
     this.type = "expense";
     
@@ -94,6 +91,5 @@ class Budget {
     }
 
     return formattedEntries
-
   }
 }
