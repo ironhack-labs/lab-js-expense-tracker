@@ -40,7 +40,7 @@ class Expense extends Entry {
 
     getFormattedAmount(){
 
-        return "-" + this.amount
+        return "-" + this.amount + " €"
     }
 
 }
@@ -64,8 +64,7 @@ class Budget {
 getCurrentBalance() {
 
     let balance = 0
-    let gastos = 0
-    let ingresos = 0
+    
     if(this.entries.length===0){
 
         return 0
@@ -74,14 +73,18 @@ getCurrentBalance() {
         const entry = this.entries[i]
         if(entry.type==="expense"){
 
-            ingresos -= entry.amount
+            balance -= entry.amount
         }else if(entry.type==="income"){
     
-            gastos += entry.amount
+            balance += entry.amount
         }
 
     }
     
-    return balance = ingresos - gastos + " €"
+    return balance + " €"
+}
+getFormattedEntries(){
+
+
 }
 }
