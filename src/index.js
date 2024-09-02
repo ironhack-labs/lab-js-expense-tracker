@@ -76,5 +76,24 @@ class Budget {
     return currentBalance
   }
 
-  
+  getFormattedEntries() {
+    let formattedEntries = []
+
+    for (let i = 0;  i < this.entries.length; i++) {
+
+      let entry = this.entries[i] // same above
+      let fromattedEntry = ""
+      
+      if (entry.type === "income") {
+        formattedEntry = `${entry.date} | ${entry.description} | +${entry.amount} €`;
+      } else if (entry.type === "expense") {
+        formattedEntry = `${entry.date} | ${entry.description} | -${entry.amount} €`;
+      }
+
+      formattedEntries.push(fromattedEntry);
+    }
+
+    return formattedEntries
+
+  }
 }
