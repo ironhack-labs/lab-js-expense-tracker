@@ -32,9 +32,9 @@ describe("Entry", () => {
       expect(entry.getFormattedAmount.length).toEqual(0);
     });
 
-    it("should return a string with the amount and the € symbol like: \"100 €\"", () => {
+    it("should return a string with the € symbol and the amount like: \"€100\"", () => {
       const entry = new Entry("2024-06-17", 100, "food");
-      expect(entry.getFormattedAmount()).toEqual("100 €");
+      expect(entry.getFormattedAmount()).toEqual("€100");
     });
   });
 });
@@ -126,11 +126,11 @@ describe("Expense", () => {
       expect(expense.getFormattedAmount.length).toEqual(0);
     });
 
-    it("should return a string with the minus sign, the amount and the € symbol like: \"-99 €\"", () => {
+    it("should return a string with the minus sign, the € symbol and the amount like: \"-€99\"", () => {
       const expense1 = new Expense("2024-06-17", 99, "food", true);
       const expense2 = new Expense("2024-06-17", 5, "food", false);
-      expect(expense1.getFormattedAmount()).toEqual("-99 €");
-      expect(expense2.getFormattedAmount()).toEqual("-5 €");
+      expect(expense1.getFormattedAmount()).toEqual("-€99");
+      expect(expense2.getFormattedAmount()).toEqual("-€5");
     });
   });
 });
@@ -237,10 +237,10 @@ describe("Budget", () => {
 
       // Check if the method returns an array of properly formatted strings
       expect(formattedEntries).toEqual([
-        "2024-06-17 | other | 10 €",
-        "2024-06-17 | salary | 3456 €",
-        "2024-06-17 | food | -100 €",
-        "2024-06-17 | food | -99 €",
+        "2024-06-17 | other | €10",
+        "2024-06-17 | salary | €3456",
+        "2024-06-17 | food | -€100",
+        "2024-06-17 | food | -€99",
       ]);
     });
   });
