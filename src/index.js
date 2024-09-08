@@ -6,9 +6,9 @@ class Entry {
   this.description= description;
     }
 
-  getFormattedAmount() {
- return `${this.amount} €`
-    } 
+    getFormattedAmount() {
+      return `${this.amount} €`
+         } 
 }
   // Income
   class Income extends Entry{
@@ -18,8 +18,9 @@ class Entry {
         this.type = "income";
     }
     getFormattedAmount() {
-        return `+${this.amount} €`;
-    }
+      return `+${this.amount} €`
+         } 
+    
   }
   
   // Expense
@@ -30,8 +31,8 @@ class Entry {
     this.paid = paid;
 }
 getFormattedAmount() {
-    return `-${this.amount} €`
-       } 
+  return `-${this.amount} €`
+     } 
    }
   // Budget
   class Budget {
@@ -58,15 +59,5 @@ getFormattedAmount() {
       });
       return balance;
     }
-    getFormattedEntries() {
-
-
-
-        const formattedEntries = [];
-        this.entries.forEach(entry => {
-          let formattedAmount = entry.type === "income" ? `+${entry.amount} €` : `-${entry.amount} €`;
-          formattedEntries.push(`${entry.date} | ${entry.description} | ${formattedAmount}`);
-        });
-        return formattedEntries;
-    }
   }
+  
