@@ -50,14 +50,30 @@ getFormattedAmount() {
       }
   
       let balance = 0;
-      this.entries.forEach(entry => {
-        if (entry.type === "income") {
-          balance += entry.amount;
-        } else if (entry.type === "expense") {
-          balance -= entry.amount;
-        }
-      });
-      return balance;
+     this.entries.forEach(function(currentEntry){
+         if(currentEntry.type =="income"){
+               balance += currentEntry.amount;
+         } else if(currentEntry.type == "expense"){
+          balance -= currentEntry.amount;
+
+         }
+     })
+     return balance;
     }
-  }
   
+getFormattedEntries(){
+
+  const FormattedEntries=[];
+
+  this.entries.forEach(function(currentEntry){
+    
+let formattedEntry = `${currentEntry.date} | ${currentEntry.description}`;
+      if(currentEntry.type =="income"){
+        formattedEntry == ''
+      } else if(currentEntry.type == "expense"){
+          formattedEntry += `-`
+      }
+  
+  })
+  }
+}
