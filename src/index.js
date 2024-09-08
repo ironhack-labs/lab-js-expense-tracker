@@ -63,17 +63,20 @@ getFormattedAmount() {
   
 getFormattedEntries(){
 
-  const FormattedEntries=[];
+  const formattedEntries=[];
 
   this.entries.forEach(function(currentEntry){
     
 let formattedEntry = `${currentEntry.date} | ${currentEntry.description}`;
-      if(currentEntry.type =="income"){
-        formattedEntry == ''
-      } else if(currentEntry.type == "expense"){
-          formattedEntry += `-`
+          if(currentEntry.type == "expense"){
+        formattedEntry  += `-`
       }
   
+      formattedEntry += `${currentEntry.amount} €`
+      formattedEntries.push(formattedEntry)
   })
+  console.log(formattedEntries)
+  return formattedEntries;
+
   }
 }
