@@ -52,4 +52,17 @@ class Budget {
         })
         return currentBalance;
     }
+    getFormattedEntries() {
+        const formattedEntries = [];
+        this.entries.forEach((entry) => {
+            if (entry.type === 'expense') {
+                formattedEntries.push(`${entry.date} | ${entry.description} | -${entry.amount} €`)
+            }
+             else {
+                formattedEntries.push(`${entry.date} | ${entry.description} | ${entry.amount} €`)
+            }
+        })
+        return formattedEntries;
+
+    }
 }
