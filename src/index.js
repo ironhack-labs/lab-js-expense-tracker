@@ -31,4 +31,25 @@ class Expense extends Income {
 }
 
 // Budget
-class Budget {}
+class Budget {
+    constructor() {
+        this.entries = [];
+    }
+    addEntry(newEntry) {
+        this.entries.push(newEntry)
+    }
+    getCurrentBalance() {
+        if (this.entries.length === 0) {
+            return 0;
+        }
+        let currentBalance = 0;
+        this.entries.forEach((entry) => {
+            if (entry.type === "expense") {
+                currentBalance -= entry.amount
+            } else {
+                currentBalance += entry.amount
+            }
+        })
+        return currentBalance;
+    }
+}
