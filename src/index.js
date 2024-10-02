@@ -61,7 +61,7 @@ class Budget {
 				//console.log("dentro del else if", element.getFormattedAmount());
 			} */ // This code is not necessary because we have already created the Entry and Expense variables, they already enter in the Array as Entry or Expense, no need reuse the Class again.
 			list.push(
-				`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`
+				`${element.date} | ${element.description} | ${element.getFormattedAmount()}`
 			);
 		});
 
