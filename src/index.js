@@ -62,21 +62,16 @@ class Budget {
         });
         return totalIncome - totalExpense;
     }
+    
+
     getFormattedEntries() {
-        let results = [];
-
-        this.entries.forEach(entry => {
-            if(entry.type.includes("expense")) {
-                results.push(`${entry.date} | ${entry.description} | -${entry.amount} €`);
-
-            } else if  (entry.type.includes("income")) {
-                results.push(`${entry.date} | ${entry.description} | ${entry.amount} €`);
-            }
-        })
-        return results;
-        
+        return this.entries.map((entry) => {
+            return `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`;
+        });
     }
+    
+}
         
 
 
-}
+
