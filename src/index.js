@@ -83,7 +83,7 @@ class Budget {
     }
 }
 
-const budget = new Budget();
+/* const budget = new Budget();
 const income1 = new Income("today", 10, "Cafe");
 const income2 = new Income("today", 5, "Cookie");
 const expense1 = new Expense("today", 20, "Water bill", true);
@@ -93,4 +93,4 @@ budget.addEntry(income2);
 budget.addEntry(expense1);
 budget.addEntry(expense2);
 budget.getCurrentBalance();
-budget.getFormattedEntries();
+budget.getFormattedEntries(); */
