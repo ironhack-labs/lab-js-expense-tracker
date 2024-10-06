@@ -55,13 +55,31 @@ class Budget {
           } else if (currentEntry.type === "expense") {
             finalBalance -= currentEntry.amount;
           } else {
-            return "Not a valid type."
+            return "Not a valid entry type."
           }
           return finalBalance;
         }, 0);
         
         console.log(balance);
         return balance;
+    }
+
+    getFormattedEntries() {
+        const formattedEntries =[];
+        this.entries.forEach(entry => {
+            let formattedAmount = "";
+            if (entry.type === "income") {
+              formattedAmount = `${entry.amount} €`;
+            } else if (entry.type === "expense") {
+              formattedAmount = `-${entry.amount} €`;
+            } else {
+              return "Not a valid entry type.";
+            }
+            const formattedEntry = `${entry.date} | ${entry.description} | ${formattedAmount}`;
+            formattedEntries.push(formattedEntry);
+        });
+        console.log(formattedEntries)
+        return formattedEntries;
     }
 }
 
@@ -75,3 +93,4 @@ budget.addEntry(income2);
 budget.addEntry(expense1);
 budget.addEntry(expense2);
 budget.getCurrentBalance();
+budget.getFormattedEntries();
