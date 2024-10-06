@@ -41,9 +41,7 @@ class Budget {
     return 0
     }
     getFormattedEntries() {
-        this.entries.forEach(element => {
-            
-        });
+        return 
     }
 }
 
