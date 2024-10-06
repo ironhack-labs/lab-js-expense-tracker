@@ -59,8 +59,6 @@ class Budget {
           }
           return finalBalance;
         }, 0);
-        
-        console.log(balance);
         return balance;
     }
 
@@ -78,7 +76,6 @@ class Budget {
             const formattedEntry = `${entry.date} | ${entry.description} | ${formattedAmount}`;
             formattedEntries.push(formattedEntry);
         });
-        console.log(formattedEntries)
         return formattedEntries;
     }
 }
