@@ -61,7 +61,7 @@ class Budget {
     getFormattedEntries() {
         const newArray = [];
         this.entries.forEach((entry) => 
-            newArray.push(`${entry.date} | ${entry.description} | ${(entry instanceof Income) ? "" : "-"}${entry.amount} €`)
+            newArray.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`)
         )
         return newArray;
     }
