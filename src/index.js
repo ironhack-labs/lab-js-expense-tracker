@@ -20,9 +20,6 @@ class Income extends Entry {
         this.description =  description;
         this.type = "income";
     };
-    getFormattedAmount() {
-        return `${this.amount} €`;
-    }
 }
 
 // Expense
@@ -41,4 +38,30 @@ class Expense extends Entry {
 }
 
 // Budget
-class Budget {}
+class Budget {
+    constructor() {
+        this.entries = [];
+    }
+    addEntry(newEntry) {
+        this.entries.push(newEntry);
+    }
+    
+    getCurrentBalance() {
+        let totalIncome = 0;
+        let totalExpense = 0;
+
+        if(this.entries.length === 0) {
+            return 0
+        }
+
+        this.entries.forEach(function(entry) {
+            if(entry.type === "income") {
+            totalIncome += entry.amount;
+            } else if(entry.type === "expense") {
+            totalExpense += entry.amount;
+            }
+            });
+        const balance = totalIncome - totalExpense;
+        return balance;  
+    }
+}
