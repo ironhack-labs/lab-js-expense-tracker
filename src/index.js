@@ -64,4 +64,16 @@ class Budget {
         const balance = totalIncome - totalExpense;
         return balance;  
     }
+    getFormattedEntries() {
+        let balanceArr = [];
+
+        this.entries.forEach(function(entry) {
+            if(entry.type === "income") {
+                balanceArr.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`);
+            } else if(entry.type === "expense") {
+                balanceArr.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`);
+            }
+        })
+        return balanceArr;
+    }
 }
