@@ -53,4 +53,21 @@ class Budget {
     });
     return totalIncome - totalExpense;
   }
+  getFormattedEntries() {
+    const informationEntries = [];
+   
+    this.entries.forEach((entry) => {
+      if (entry.type === "income") {
+         informationEntries.push(
+          `${entry.date} | ${entry.description} | +${entry.amount} €`
+        );
+      } else if (entry.type === "expense") {
+         informationEntries.push(
+          `${entry.date} | ${entry.description} | -${entry.amount} €`
+        );
+      }
+    });
+    return informationEntries;
+    
+  }
 }
