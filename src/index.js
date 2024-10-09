@@ -42,22 +42,19 @@ class Budget {
     }
 
     getCurrentBalance(){
-        if (!this.amount){
-            return 0;
-        }
+        
         let sumIncome = 0;
         let sumExpense = 0;
 
         for (let i=0; i<this.entries.length; i++){
-            if (entry.type === "income") {
+            if (this.entries[i].type === "income") {
             sumIncome += this.entries[i].amount
         }
         else {
             sumExpense += this.entries[i].amount
         }
-
-        return sumIncome - sumExpense
         
     }
+    return sumIncome - sumExpense
 }
 }
