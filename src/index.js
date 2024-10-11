@@ -31,4 +31,24 @@ class Expense extends Entry {
 }
 
 // Budget
-class Budget { }
+class Budget { 
+    constructor () {
+        this.entries = [];
+    }
+    addEntry (newEntry) {
+        this.entries.push(newEntry);
+    }
+    getCurrentBalance () {
+        if (this.entries.length === 0) {
+            return 0;
+        }
+        return this.entries.reduce((result, entry) => {        
+            if (entry.type === "income" ) {
+                result += entry.amount;
+            } else {
+                result -= entry.amount;
+            }
+            return result;
+        },0);
+    }
+}
