@@ -51,4 +51,15 @@ class Budget {
             return result;
         },0);
     }
+    getFormattedEntries () {
+        const formattedStrings = [];
+        this.entries.forEach(entry => {
+            if (entry.type === "income") {
+                formattedStrings.push(`${entry.date} | ${entry.description} | ${entry.amount} €`);
+            } else {
+                formattedStrings.push(`${entry.date} | ${entry.description} | -${entry.amount} €`);
+            }
+        });
+        return formattedStrings;
+    }
 }
