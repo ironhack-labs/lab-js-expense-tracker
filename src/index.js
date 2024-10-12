@@ -5,14 +5,13 @@ class Entry {
         this.amount = amount;
         this.description = description;
     }
-    getFormattesAmount() {
+    getFormattedAmount() {
         return `${this.amount} €`;
     }
 }
 
 // Income
-class Income {
-    class Income extends Entry {
+class Income extends Entry {
         constructor(date, amount, description) {
           super(date, amount, description);
           this.type = "income";
