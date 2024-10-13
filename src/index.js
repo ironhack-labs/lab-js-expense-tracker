@@ -6,9 +6,9 @@ class Entry {
         this.description = description; 
     }
 
-getFormattedAmount() {
+    getFormattedAmount() {
 
-   return `${this.amount} €`
+        return `${this.amount} €`;
 }
 
 
@@ -33,6 +33,11 @@ class Expense extends Entry{
 
     }
 
+    getFormattedAmount(){
+        
+        return `-${this.amount} €`; 
+
+    }
 
 }
 
