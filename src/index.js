@@ -34,12 +34,30 @@ class Expense extends Entry{
     }
 
     getFormattedAmount(){
-        
-        return `-${this.amount} €`; 
+         return `-${this.amount} €`; 
 
     }
 
 }
 
 // Budget
-class Budget {}
+class Budget {
+    constructor(){
+        this.entries = []; 
+
+
+    }
+    addEntry(entry){
+        this.entries.push(entry);
+    };
+
+
+    getCurrentBalance(){
+        if (this.entries.length === 0){
+            return 0;
+        }     
+        
+    };
+
+
+}
