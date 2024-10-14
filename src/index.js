@@ -7,7 +7,7 @@ class Entry {
     }
 
     getFormattedAmount() {
-        return `${this.amount} €`
+        return `${this.amount} €`;
     }
 }
 
@@ -20,7 +20,17 @@ class Income extends Entry {
 }
 
 // Expense
-class Expense {}
+class Expense extends Entry {
+    constructor(date, amount, description, paid) {   // Aunque extienda la clase hace falta pasar los anteriores argumentos
+        super(date, amount, description); 
+        this.type = 'expense';
+        this.paid = paid;
+    }
+
+    getFormattedAmount() {
+        return `-${super.getFormattedAmount()}`;
+    }
+}
 
 // Budget
 class Budget {}
