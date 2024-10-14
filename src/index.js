@@ -5,6 +5,10 @@ class Entry {
         this.amount = amount;
         this.description = description;
     }
+
+    getFormattedAmount() {
+        return `${this.amount} €`
+    }
 }
 
 // Income
