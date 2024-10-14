@@ -53,4 +53,13 @@ class Budget {
         })
         return balance;
     }
+
+    getFormattedEntries() {
+        let formattedEntries = [];
+        this.entries.forEach((entry) => {
+            let formatted = `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`;
+            formattedEntries.push(formatted);
+        })
+        return formattedEntries;
+    }
 }
