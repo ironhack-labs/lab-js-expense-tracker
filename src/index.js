@@ -19,7 +19,6 @@ class Income extends Entry {
         this.amount = amount; 
         this.description = description;
         this.type = 'income'; 
-        this.amountSign = amount; 
     }  
 }
 
@@ -31,7 +30,6 @@ class Expense extends Entry {
         this.description = description;
         this.paid = paid;  
         this.type = 'expense';
-        this.amountSign = - amount; 
 
     }
     getFormattedAmount(){
@@ -50,21 +48,23 @@ class Budget {
         this.entries.push(entry); 
     }
 
-    getCurrentBalance(){
-        if (this.entries.length === 0){
-            return 0;
+    getCurrentBalance() {
+        return this.entries.reduce((acc, entry) => {
+            if (entry instanceof Income) {
+                return acc + entry.amount;
+            } else if (entry instanceof Expense) {
+                return acc - entry.amount;
+            }
+            return acc;
+             }, 0);
         }
-     const balance = this.entries.reduce((acc, entry) => {
-        return acc + entry.amountSign;
-     },0); 
-     return balance;
     }
     
     
     getFormattedEntries(){
         const formatEntries=[];
         this.entries.forEach((entry ) => {
-            formatEntries.push(`${entry.date} | ${entry.description} | ${entry.amountSign} €`)
+            formatEntries.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount(entry)} €`)
         }); 
         return formatEntries; 
     }
