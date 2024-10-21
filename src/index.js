@@ -37,16 +37,23 @@ class Budget {
     constructor(){
         this.entries = [];
     }
-    addEntry(object){
-        this.entries.push(object);
+    addEntry(Entry){
+        this.entries.push(Entry);
         return
     }
     getCurrentBalance(){
-        if (this.entries.length === 0){
-            return 0
-        }  else { // should return the difference between the total income and the total expense of all entries
-            return Expense.amount.expense - Income.amount.Income
+        let totalIncome = 0;
+        let totalExpense = 0;
+
+        for (let entry of this.entries) {
+            if (entry instanceof Income) {
+                totalIncome += entry.amount; // Accumulate income amounts
+            } else if (entry instanceof Expense) {
+                totalExpense += entry.amount; // Accumulate expense amounts
+            }
         }
+
+    return totalIncome - totalExpense;
         
     }
 
