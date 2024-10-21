@@ -42,8 +42,12 @@ class Budget {
         return
     }
     getCurrentBalance(){
+        if (this.entries.length === 0){
+            return 0
+        }  else { // should return the difference between the total income and the total expense of all entries
+            return Expense.amount.expense - Income.amount.Income
+        }
         
-        return null
     }
 
 }
