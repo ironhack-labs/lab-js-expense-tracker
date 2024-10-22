@@ -51,5 +51,5 @@ class Expense extends Entry {
 
 
 // Budget
-class Budget ={ }
+class Budget =sss{ }
 
