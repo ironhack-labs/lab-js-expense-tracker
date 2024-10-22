@@ -1,4 +1,4 @@
-// Entry
+// Entry ----
 class Entry {
   constructor(date, amount, description) {
     this.date = date;
