@@ -51,4 +51,15 @@ class Budget {
       return total + sign * entry.amount;
     }, 0);
   }
+
+  getFormattedEntries() {
+    let formattedEntries = [];
+
+    this.entries.forEach((entry) => {
+      const formattedEntry = `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`;
+      formattedEntries.push(formattedEntry);
+    });
+
+    return formattedEntries;
+  }
 }
