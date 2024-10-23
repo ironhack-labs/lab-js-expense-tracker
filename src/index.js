@@ -1,3 +1,6 @@
+const ENTRY_TYPE_INCOME = 'income';
+const ENTRY_TYPE_EXPENSE = 'expense';
+
 // Entry
 class Entry {
   constructor(date, amount, description) {
@@ -15,7 +18,7 @@ class Entry {
 class Income extends Entry {
   constructor(date, amount, description) {
     super(date, amount, description);
-    this.type = 'income';
+    this.type = ENTRY_TYPE_INCOME;
   }
 }
 
@@ -24,7 +27,7 @@ class Expense extends Entry {
   constructor(date, amount, description, paid) {
     super(date, amount, description);
     this.paid = paid;
-    this.type = 'expense';
+    this.type = ENTRY_TYPE_EXPENSE;
   }
 
   getFormattedAmount() {
@@ -33,4 +36,19 @@ class Expense extends Entry {
 }
 
 // Budget
-class Budget { }
+class Budget {
+  constructor() {
+    this.entries = [];
+  }
+
+  addEntry(entry) {
+    this.entries.push(entry);
+  }
+
+  getCurrentBalance() {
+    return this.entries.reduce((total, entry) => {
+      const sign = entry.type === ENTRY_TYPE_EXPENSE ? -1 : 1;
+      return total + sign * entry.amount;
+    }, 0);
+  }
+}
