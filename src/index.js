@@ -14,9 +14,9 @@ class Entry {
 
 // Income
 class Income extends Entry {
-  constructor(date, amount, description, type = "income") {
+  constructor(date, amount, description) {
     super(date, amount, description);
-    this.type = type;
+    this.type = "income";
   }
 }
 
@@ -74,7 +74,6 @@ class Budget {
         );
       }
     });
-    console.log(formattedEntries);
     return formattedEntries;
   }
 }
