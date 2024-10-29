@@ -12,17 +12,17 @@ class Entry {
 // const amount = new Entry(20,100,'bought toys')
 // Income
 class Income extends Entry {
-  constructor(date, amount, description, type = 'income') {
+  constructor(date, amount, description) {
     super(date, amount, description);
-    this.type = type;
+    this.type = "income";
   }
 }
 
 // Expense
 class Expense extends Entry {
-  constructor(date, amount, description, paid, type = 'expense') {
+  constructor(date, amount, description, paid) {
     super(date, amount, description);
-    this.type = type;
+    this.type = "expense";
     this.paid = paid;
   }
   getFormattedAmount() {
