@@ -44,23 +44,31 @@ class Budget {
     if (this.entries.length === 0) {
       return 0;
     }
-    let balance = 0;
+    let balanceIncome = 0;
+    let balanceExpense = 0;
+
     this.entries.forEach((entry) => {
       if (entry.type === "income") {
-        balance += entry.amount;
+        balanceIncome += entry.amount;
       } else {
-        balance -= this.entry.amount;
+        balanceExpense += entry.amount;
       }
     });
-    return balance;
+    return balanceIncome - balanceExpense;
   }
   getFormattedEntries() {
+    const formatedEntries = [];
     this.entries.forEach((entry) => {
       if (entry.type === "income") {
-        return `${this.date} | ${this.description} | +${this.amount}€`;
+        formatedEntries.push(
+          `${entry.date} | ${entry.description} | +${entry.amount}€`
+        );
       } else {
-        return `${this.date} | ${this.description} | -${this.amount}€`;
+        formatedEntries.push(
+          `${entry.date} | ${entry.description} | -${entry.amount}€`
+        );
       }
     });
+    return formatedEntries;
   }
 }
