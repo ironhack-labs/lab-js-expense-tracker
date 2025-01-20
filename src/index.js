@@ -59,7 +59,7 @@ class Budget {
         if (this.entries.length === 0) {
             return 0
         }
-        this.entries.forEach(function () {
+        this.entries.forEach(function (newEntry) {
             if (newEntry.type === "income") {
                 totalIncome += newEntry.amount;
             } else if (newEntry.type === "expense") {
@@ -67,6 +67,18 @@ class Budget {
             }
         })
         return totalIncome - totalExpenses;
+    }
+    getFormattedEntries() {
+        let formattedEntries = [];
+
+        this.entries.forEach(function (newEntry) {
+            if (newEntry.type === "income") {
+                formattedEntries.push(`${newEntry.date} | ${newEntry.description} | ${newEntry.amount} €`);
+            } else if (newEntry.type === "expense") {
+                formattedEntries.push(`${newEntry.date} | ${newEntry.description} | ${newEntry.amount} €`);
+            }
+        })
+        return formattedEntries;
     }
 
 }
