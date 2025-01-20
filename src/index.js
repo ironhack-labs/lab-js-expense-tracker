@@ -63,7 +63,9 @@ const balance= totalIncome-totalExpense;
     let formattedString;
     this.entries.forEach(function(element){
         if(element.type === 'income'){
-            formattedString = element.date + " | "+element.description+ " | "+element.amount + " €" ;
+            formattedString = element.date + " | "+element.description+ " | +"+element.amount + " €" ;
+            //below code for jasmine
+            //formattedString = element.date + " | "+element.description+ " | +"+element.amount + " €" ;
             formattedEntries.push(formattedString);
         } else if (element.type === 'expense'){
             formattedString = element.date + " | "+element.description+ " | -"+element.amount + " €" ;
