@@ -37,8 +37,8 @@ class Budget {
   constructor() {
     this.entries = [];
   }
-  addEntry(newEntry) {
-    this.entries.push(newEntry);
+  addEntry(entry) {
+    this.entries.push(entry);
   }
   getCurrentBalance() {
     if (this.entries.length === 0) {
@@ -47,22 +47,35 @@ class Budget {
     let totalIncome = 0;
     let totalExpense = 0;
 
-    for (const newEntry of this.entries) {
-      if (newEntry.type === 'income') {
-        totalIncome += newEntry.amount;
-      } else if (newEntry.type === 'expense') {
-        totalExpense += newEntry.amount;
+    for (const entry of this.entries) {
+      if (entry.type === 'income') {
+        totalIncome += entry.amount;
+      } else if (entry.type === 'expense') {
+        totalExpense += entry.amount;
       }
     }
+const balance= totalIncome-totalExpense;
 
-    return totalIncome-totalExpense;
+    return balance;
   }
   getFormattedEntries(){
-    
+    let formattedEntries = [];
+    let formattedString;
+    this.entries.forEach(function(element){
+        if(element.type === 'income'){
+            formattedString = element.date + " | "+element.description+ " | "+element.amount + " €" ;
+            formattedEntries.push(formattedString);
+        } else if (element.type === 'expense'){
+            formattedString = element.date + " | "+element.description+ " | -"+element.amount + " €" ;
+            formattedEntries.push(formattedString);
+        }
+           
+    });
+return formattedEntries;
   }
 }
 
-/* const firstEntry = new Entry('2025,1,15', 1250, ' newinvestment');
+ const firstEntry = new Income('2025,1,15', 1250, ' newinvestment');
 firstEntry.getFormattedAmount();
 const secondEntry = new Expense('2025,1,17' , 460, 'firstExpense');
-secondEntry.getFormattedAmount(); */
+secondEntry.getFormattedAmount(); 
