@@ -48,11 +48,27 @@ class Budget {
         this.entries.push(Income)
     }
 
-    getCurrentBalance(){
-        if(this.entries.length === 0){
-            return 0;
-        }
-        else{
+    //getCurrentBalance(){
+        //if(this.entries.length === 0){
+           // return 0;
+        //}
+        //else{
+
+
+            getCurrentBalance() {
+                let totalIncome = 0;
+                let totalExpense = 0;
+              
+                for (let entry of this.entries) {
+                  if (entry.type === "income") {
+                    totalIncome += entry.amount;
+                  } else if (entry.type === "expense") {
+                    totalExpense += entry.amount;
+                  }
+                }
+              
+                return totalIncome - totalExpense;
+              }
             /*
             getCurrentBalance(){
        if(this.entries.length === 0 || !this.entries){
@@ -82,9 +98,7 @@ class Budget {
        return balance
     }
             */
-        }
-    }
-
+    
     getFormattedEntries(){
         return this.entries.map(entry => {
             return `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`;
