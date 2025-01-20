@@ -61,11 +61,10 @@ class Budget {
         let formattedEntries = [];
 
         this.entries.forEach(entry => {
-            if (entry.type === "income") {
-                formattedEntries.push(`${entry.date} | ${entry.description} | ${entry.amount} €`);
-            } else if (entry.type === "expense") {
-                formattedEntries.push(`${entry.date} | ${entry.description} | -${entry.amount} €`);
-            }
+            const formattedAmount = entry.getFormattedAmount();
+            
+            formattedEntries.push(`${entry.date} | ${entry.description} | ${formattedAmount}`);
+            
         });
 
         return formattedEntries;
