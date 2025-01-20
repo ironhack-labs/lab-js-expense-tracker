@@ -65,14 +65,24 @@ class Budget {
        const balance = sumIncom - sumExpense
        return balance
     }
-    getFormattedEntries(){
+    getFormattedEntries() {
         const tempArr = []
-        this.entries.forEach(element =>{
-           tempArr.push(`${element.date} | ${element.description} | ${element.amount} `)
+        this.entries.forEach(entry => {
+          tempArr.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`)
         })
         return tempArr
-    }
+      }
 }
+
+
+
+/*  the function in a better way 
+
+*/
+
+
+
+
 
 const myBudget = new Budget()
 
