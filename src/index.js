@@ -39,12 +39,22 @@ class Budget {
     constructor() {
         this.entries = []
     }
-    addEntry(Income) {
-this.entries.push(Income)
+    addEntry(newEntry) {
+this.entries.push(newEntry)
     }
 
     getCurrentBalance() {
        if(this.entries.length === 0) return 0
-       else {return (Income - Expense)}
+       
+      let totalIncome = 0
+      let totalExpense = 0
+       this.entries.forEach(element => {
+        if( element.type === "income") {
+            totalIncome += element.amount}
+            else {totalExpense += Math.abs(element.amount)}
+        
+       })
+       return totalIncome - totalExpense
     }
+    
 }
