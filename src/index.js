@@ -54,12 +54,10 @@ class Budget {
         return totalIncomes - totalExpenses;
     }
     getFormattedEntries() {
-        
+        return this.entries.map(entry => {
+            const sign = entry.type != "income" ? "-" : "";
+            return `${entry.date} | ${entry.description} | ${sign}${entry.amount} €`;
+          });
     }
+    
 }
-
-
-//Para implementar la **Iteración 5 | Obtener entradas formateadas**, necesitamos agregar el método 
-// `getFormattedEntries()` a la clase `Budget`. Este método debe recorrer todas las entradas (ingresos y gastos) almacenadas en la propiedad `entries`, 
-// formatear cada una según las reglas proporcionadas, y devolver un array con las cadenas formateadas. ### Implementación Paso a Paso 1. **Recorrer las entradas:** Utilizaremos un método como `map` para recorrer el array `entries`. 
-// 2. **Formatear los ingresos y gastos:** Dependiendo del valor de la propiedad `type`, aplicaremos el formato correspondiente: -
