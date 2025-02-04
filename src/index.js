@@ -34,6 +34,7 @@ class Expense extends Entry {
 
 }
 
+
 // Budget
 class Budget {
     constructor(){
@@ -65,10 +66,14 @@ class Budget {
         return totalIncome - totalExpense;
     }
 
-    getFormattedEntries(){
-
-        let formattedEntries = [];
-// can't do this yet :/     
+      getFormattedEntries() {
+         const formattedEntries = [];
+         
+         this.entries.forEach(entry => {
+        formattedEntries.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`);
+         });
+        
         return formattedEntries;
-    }
 }
+}
+
