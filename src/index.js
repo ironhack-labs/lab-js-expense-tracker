@@ -43,9 +43,35 @@ class Budget {
         if (this.entries.length === 0){
             return 0;
     }
-
+    
     let totalIncome = 0;
     let totalExpenses = 0;
+   
+    this.entries.forEach(function(entry){
+        if (entry.type === 'income'){
+            totalIncome += entry.amount;
+        }   else if (entry.type === 'expense'){
+            totalExpenses += entry.amount;
+        }
+    });
 
+    
+    return totalIncome - totalExpenses;
+    
+}
+    getFormattedEntries() {
+
+        const formattedEntries = [];
+
+        this.entries.forEach(function(entry){
+            if (entry.type === 'income'){
+                formattedEntries.push(`${entry.date} | ${entry.description} | +${entry.amount}€`);
+            }   else if (entry.type === 'expense'){
+                formattedEntries.push(`${entry.date} | ${entry.description} | -${entry.amount}€`);
+            }   
+    });
+    
+    return formattedEntries;
 }
 }
+
