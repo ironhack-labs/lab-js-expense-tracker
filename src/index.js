@@ -53,6 +53,23 @@ class Budget {
     }
     return result;
   }
+  getFormattedEntries() {
+    let formattedEntries = [];
+    this.entries.forEach((eachFormattedEntry) => {
+      if (eachFormattedEntry.type === "income") {
+        formattedEntries.push(
+          `${eachFormattedEntry.date} | ${eachFormattedEntry.description} | ${eachFormattedEntry.amount} €`
+        );
+      } else if (eachFormattedEntry.type === "expense") {
+        formattedEntries.push(
+          `${eachFormattedEntry.date} | ${eachFormattedEntry.description} | -${eachFormattedEntry.amount} €`
+        );
+      }
+    });
+    return formattedEntries;
+  }
 }
+
+//
 
 //! ----  Area for testing!  ---- //
