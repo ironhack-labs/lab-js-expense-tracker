@@ -53,7 +53,31 @@ class Entry {
     }
     return total;
     }
-    
+    // another way
+    getCurrentBalance() {
+        if ( this.entries.length === 0){
+            return 0;        
+        } 
+        let total = 0;
+        this.entries.forEach((elem) => {
+            if (elem.type === 'income') {
+                total += elem.amount;
+            } else if (elem.type === 'expense') {
+                total -= elem.amount;
+            }
+        })
+        return total;
+    }
+
     getFormattedEntries() { 
+        const strArray = [];
+        this.entries.forEach((oneEntryInLoop) => {
+            if (oneEntryInLoop.type === 'income') {
+                 strArray.push(`${oneEntryInLoop.date} | ${oneEntryInLoop.description}  | ${oneEntryInLoop.getFormattedAmount()}`);
+            } else if (oneEntryInLoop.type === 'expense') {
+                strArray.push(`${oneEntryInLoop.date} | ${oneEntryInLoop.description}  | ${oneEntryInLoop.getFormattedAmount()}`);
+           }
+        });
+        return strArray;
     }
   } 
