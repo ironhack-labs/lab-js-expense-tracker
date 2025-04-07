@@ -61,7 +61,7 @@ class Budget {
         if (entry.type === 'income') {
             formattedString = `${entry.date} | ${entry.description} | ${entry.amount} €`;
         } else if (entry.type === 'expense') {
-            formattedString = `${entry.date} | ${entry.description} | ${entry.amount} €`;
+            formattedString = `${entry.date} | ${entry.description} | -${entry.amount} €`;
         }
         formattedEntries.push(formattedString);
     });
