@@ -61,16 +61,16 @@ class Budget {
    }
 
    getFormattedEntries(){
-    let formattedEntries = [];
-    for (let i = 0; i < this.entries.length; i++){
-        formattedEntries.push({
-            date: this.entries[i].date,
-            amount: this.entries[i].getFormattedAmount(),
-            description: this.entries[i].description,
-        
+    let finalArr = [];
+    this.entries.forEach(function (element){
+        finalArr.push({
+            date: element.date,
+            amount: element.getFormattedAmount(),
+            description: element.description,
         });
-    }
-    return formattedEntries;
+    });
+   return finalArr;
+
    }
 }
 
