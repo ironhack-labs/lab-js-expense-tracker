@@ -58,4 +58,34 @@ class Budget {
       return 0;
     }
   }
+  getFormattedEntries() {
+    const formattedEntries = [];
+    this.entries.forEach(function (element) {
+      console.log('element getFormatted: ', element);
+      console.log('date getFormatted: ', element.date);
+      console.log('description getFormatted: ', element.description);
+      console.log('amount getFormatted: ', element.getFormattedAmount());
+
+      formattedEntries.push(
+        `${element.date} | ${
+          element.description
+        } | ${element.getFormattedAmount()}`
+      );
+
+      // if (element.type === 'income') {
+      //   return `${element.date} | ${
+      //     element.description
+      //   } | ${element.getFormattedAmount()}`;
+      // } else {
+      //   return `${element.date} | ${
+      //     element.description
+      //   } | ${element.getFormattedAmount()}`;
+      // }
+    });
+    return formattedEntries;
+  }
 }
+
+// this.entries.forEach((entry) => {
+//   entry.getFormattedAmount();
+// });
