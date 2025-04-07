@@ -293,9 +293,12 @@ Returns the balance of the budget (total income - total expenses).
 
 Implement the `getFormattedEntries()` method, on the `Budget` class, that returns an array of strings with the formatted entries. The format of the string should be as follows:
 
-- For incomes:  `"DATE | DESCRIPTION | +AMOUNT €"`
+- For incomes:  `"DATE | DESCRIPTION | AMOUNT €"`
 
 - For expenses: `"DATE | DESCRIPTION | -AMOUNT €"`
+
+
+Note: pay special attention to the format (white spaces etc.). Also, notice that, for expenses, there's a minus sign.
 
 <br>
 
