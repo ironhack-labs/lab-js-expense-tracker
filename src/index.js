@@ -33,10 +33,39 @@ class Expense extends Entry {
 	}
 
 	getFormattedAmount() {
-		return `-${this.amount} €`;
+		return `-${super.getFormattedAmount()}`;
 	}
 
 }
 
 // Budget
-class Budget {}
+class Budget {
+
+	constructor() {
+		this.entries = [];
+	}
+
+	addEntry(entry) {
+		this.entries.push(entry);
+	}
+
+	getCurrentBalance() {
+		if (this.entries.length == 0) {
+			return 0;
+		} else {
+			let balance = 0;
+				this.entries.forEach(element => {
+					console.log(element);
+					if (element.type === "income") {
+						balance += element.amount;						
+					}
+
+					if (element.type === "expense") {
+						balance -= element.amount;
+					}
+				});
+				return balance;
+		}
+	}
+
+}
