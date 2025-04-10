@@ -50,6 +50,21 @@ class Budget {
 	}
 
 	getCurrentBalance() {
+		let balance = 0;
+		for (const entry of this.entries) {
+			switch (entry.type) {
+				case "income":
+					balance += entry.amount;
+					break;
+				case "expense":
+					balance -= entry.amount;
+					break;
+			}
+		}
+		return balance;
+
+
+		/*
 		if (this.entries.length == 0) {
 			return 0;
 		} else {
@@ -66,6 +81,7 @@ class Budget {
 				});
 				return balance;
 		}
+				*/
 	}
 
 }
