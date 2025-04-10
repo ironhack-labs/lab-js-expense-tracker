@@ -11,6 +11,10 @@ class Entry {
 		return `${this.amount} €`;
 	}
 
+	format() {
+		return `${this.date} | ${this.description} | ${this.getFormattedAmount()}`;
+	}
+
 }
 
 // Income
@@ -63,8 +67,7 @@ class Budget {
 		}
 		return balance;
 
-
-		/*
+		/* Old way of doing it
 		if (this.entries.length == 0) {
 			return 0;
 		} else {
@@ -82,6 +85,18 @@ class Budget {
 				return balance;
 		}
 				*/
+	}
+
+	getFormattedEntries() {
+		const arrayOfEntries = [];
+		for (const entry of this.entries) {
+			const date = entry.date;
+			const description = entry.description;
+			const amount = entry.getFormattedAmount();
+			//arrayOfEntries.push(`${date} | ${description} | ${amount}`);
+			arrayOfEntries.push(entry.format());
+		}
+		return arrayOfEntries;
 	}
 
 }
