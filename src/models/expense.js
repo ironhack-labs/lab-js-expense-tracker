@@ -9,6 +9,6 @@ class Expense extends Entry {
 
     getFormattedAmount () {
         
-        return `-${this.amount} €`
+        return `-${super.getFormattedAmount()}`
     }
 }

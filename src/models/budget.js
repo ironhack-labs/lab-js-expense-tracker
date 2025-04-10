@@ -1,33 +1,36 @@
 // Budget
 class Budget {
 
-    constructor () {
+    constructor() {
         this.entries = [];
     }
     
-    addEntry (entry) {
+    addEntry(entry) {
         this.entries.push(entry);
-
     }
 
-    getCurrentBalance () {
-        if (this.entries.length === 0) {
-            return 0;
-        }
-        console.log(this.entries.type)
-        
+    getCurrentBalance() {
         let currentBalance = 0;
-        for (const entry of entries) {
-            console.log(entry.type)
-            if (entry.type === "income") {
-                currentBalance += entry.amount;
+      
+        for (const entry of this.entries) {
+            switch (entry.type) {
+                case "income":
+                    currentBalance += entry.amount;
+                    break;
+                case "expense":
+                    currentBalance -= entry.amount;
+                    break;
             }
-            if (entry.type === "expense") {
-                currentBalance -= entry.amount;
-            }
-            
-            currentBalance += entry
         }
+        return currentBalance;
     }
 
+    getFormattedEntries() {
+        const formattedEntry = [];
+
+        for (const entry of this.entries) {
+            formattedEntry.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`);
+        }
+        return formattedEntry;
+    }
 }
