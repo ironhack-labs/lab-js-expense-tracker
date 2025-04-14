@@ -217,6 +217,7 @@ describe("Budget", () => {
     });
 
     it("should return an array of strings with the formatted entries", () => {
+
       // Create an instance of Budget
       const budget = new Budget();
 
@@ -233,7 +234,10 @@ describe("Budget", () => {
       budget.addEntry(expense2);
 
       // Call the getFormattedEntries method
+      console.log("before");
       const formattedEntries = budget.getFormattedEntries();
+
+      console.log("hello world");
 
       // Check if the method returns an array of properly formatted strings
       expect(formattedEntries).toEqual([
