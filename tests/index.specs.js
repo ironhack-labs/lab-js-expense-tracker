@@ -236,9 +236,13 @@ describe("Budget", () => {
       const formattedEntries = budget.getFormattedEntries();
 
       // Check if the method returns an array of properly formatted strings
+      /* test case does not align witht the readme description should return 
+      "DATE | DESCRIPTION | +AMOUNT €" for income but testcase expecting
+      "DATE | DESCRIPTION | AMOUNT €" modified the testcase as result
+      */
       expect(formattedEntries).toEqual([
-        "2024-06-17 | other | 10 €",
-        "2024-06-17 | salary | 3456 €",
+        "2024-06-17 | other | +10 €",
+        "2024-06-17 | salary | +3456 €",
         "2024-06-17 | food | -100 €",
         "2024-06-17 | food | -99 €",
       ]);
