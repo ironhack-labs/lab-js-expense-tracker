@@ -82,7 +82,9 @@ Your task is to write the code in the `src/index.js` file following the below gu
 
 ```javascript
 // Entry
-class Entry {}
+class Entry {
+  
+}
 
 // Income
 class Income {}
