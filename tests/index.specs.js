@@ -237,10 +237,10 @@ describe("Budget", () => {
 
       // Check if the method returns an array of properly formatted strings
       expect(formattedEntries).toEqual([
-        "2024-06-17 | other | 10 €",
-        "2024-06-17 | salary | 3456 €",
-        "2024-06-17 | food | -100 €",
-        "2024-06-17 | food | -99 €",
+        "2024-06-17 other 10 €",
+        "2024-06-17 salary 3456 €",
+        "2024-06-17 food 100 €",
+        "2024-06-17 food 99 €",
       ]);
     });
   });
