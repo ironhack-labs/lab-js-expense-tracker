@@ -7,46 +7,44 @@ class Entry {
   }
   getFormattedAmount() {
     return `${this.amount} €`;
-  };
+  }
 }
 
 // Income
 class Income extends Entry {
   constructor(date, amount, description) {
-    super (date, amount, description)
-      this.type = "income";
+    super(date, amount, description);
+    this.type = "income";
   }
 }
-
-
 
 // Expense
 class Expense extends Entry {
   constructor(date, amount, description, paid) {
-    super(date, amount, description)
+    super(date, amount, description);
     this.type = "expense";
     this.paid = paid;
   }
-  getFormattedAmount () {
-    return `-${this.amount} €`
+  getFormattedAmount() {
+    return `-${this.amount} €`;
   }
 }
 
 // Budget
 class Budget {
   constructor() {
-    this.entries = []
+    this.entries = [];
   }
   addEntry(entry) {
     this.entries.push(entry);
   }
-  getCurrentBalance () {
-    // return !this.entries.length ? 0 : 
+  getCurrentBalance() {
+    // return !this.entries.length ? 0 :
     if (!this.entries.length) {
       return 0;
     }
 
-    let incomes  = 0;
+    let incomes = 0;
     let expenses = 0;
 
     this.entries.forEach((entry) => {
@@ -56,7 +54,7 @@ class Budget {
       if (entry.type === "income") {
         incomes += entry.amount;
       }
-  });
+    });
     return incomes - expenses;
   }
 
@@ -65,12 +63,15 @@ class Budget {
 
     this.entries.forEach((entry) => {
       if (entry.type === "expense") {
-        entries.push(`${entry.date} | ${entry.description} | -${entry.amount} €`);
+        entries.push(
+          `${entry.date} | ${entry.description} | -${entry.amount} €`
+        );
       } else {
-        entries.push(`${entry.date} | ${entry.description} | +${entry.amount} €`);
+        entries.push(
+          `${entry.date} | ${entry.description} | ${entry.amount} €`
+        );
       }
     });
-    console.log(entries);
     return entries;
   }
 }
