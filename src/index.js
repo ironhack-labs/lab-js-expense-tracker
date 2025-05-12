@@ -39,9 +39,16 @@ addEntry(entry){
     this.entries.push(entry)
 }
     getCurrentBalance(){
-        let total = (this.type.Income - this.type.Expense);
+        if (this.entries.length === 0) return 0;
+        let total = 0;
+        this.entries.forEach(entry =>{
+            if (entry.type === 'income'){
+                total += entry.amount;
+            } else if (entry.type === 'expense') {
+                total -= entry.amount;
+            }
+        })
         return total;
-        
         }
     }
 
