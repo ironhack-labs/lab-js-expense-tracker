@@ -17,10 +17,7 @@ class Entry {
 class Income extends Entry {
 
     constructor(date, amount, description) {
-        super(amount, description);
-        this.amount = amount;
-        this.description = description;
-        this.date = date;
+        super(date, amount, description);
         this.type = "income";
         
     }
@@ -30,13 +27,11 @@ class Income extends Entry {
 
 // Expense
 class Expense extends Entry {
-    constructor(date, amount, description, paid) {
-        super(amount,description,paid);
-        this.date = date;
-        this.amount = amount;
-        this.description = description;
-        this.paid = paid;
+    constructor(date, amount, description, paid, category) {
+        super(date, amount,description);
         this.type = "expense";
+        this.paid = paid;
+        this.category = category;
              
     }
    
@@ -52,7 +47,7 @@ class Budget {
     }
 
     addEntry(entry){
-      this.entries.push(entry);
+      this.entries.push(entry);3
 
     };
     getCurrentBalance(){
