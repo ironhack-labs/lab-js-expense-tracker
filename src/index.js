@@ -74,3 +74,14 @@ class Budget {
         return formattedEntriesArr
     }
 }
+
+
+const salary = new Income("07/07/2007",15000,"salary with bonus")
+const bills = new Expense("06/11/2020",40,"electricity bill",true)
+const wallet = new Budget()
+
+wallet.addEntry(salary)
+wallet.addEntry(bills)
+
+console.log(wallet.getCurrentBalance())
+console.log(wallet.getFormattedEntries())
