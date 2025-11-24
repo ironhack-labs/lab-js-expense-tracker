@@ -55,9 +55,10 @@ class Budget {
     }
 
     getFormattedEntries() {
-        const result = this.entries.map(entry => {
-            return `${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`
-        })
-        return result
+    const formatedEntries = [];
+    this.entries.forEach(entry => {
+         formatedEntries.push(`${entry.date} | ${entry.description} | ${entry.getFormattedAmount()}`)
+    })
+    return formatedEntries
     }
 }
