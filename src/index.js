@@ -63,24 +63,47 @@ class Budget {
     return finalBalance;
   }
 
+  // Bonus iteration with normal For loop
+
+  //   getFormattedEntries() {
+  //     let formattedEntries = [];
+  //     let date;
+  //     let description;
+  //     let amount;
+
+  //     for (let i = 0; i < this.entries.length; i++) {
+  //       date = this.entries[i].date;
+  //       description = this.entries[i].description;
+  //       amount = this.entries[i].amount;
+
+  //       if (this.entries[i].type === "income") {
+  //         formattedEntries.push(`${date} | ${description} | ${amount} €`);
+  //       } else if (this.entries[i].type === "expense") {
+  //         formattedEntries.push(`${date} | ${description} | -${amount} €`);
+  //       }
+  //     }
+
+  //     return formattedEntries;
+  //   }
+
+//With ForEach loop
+
   getFormattedEntries() {
     let formattedEntries = [];
     let date;
     let description;
     let amount;
 
-    for (let i = 0; i < this.entries.length; i++) {
-      date = this.entries[i].date;
-      description = this.entries[i].description;
-      amount = this.entries[i].amount;
-
-      if (this.entries[i].type === "income") {
+    this.entries.forEach(function (entry) {
+      date = entry.date;
+      description = entry.description;
+      amount = entry.amount;
+      if (entry.type === "income") {
         formattedEntries.push(`${date} | ${description} | ${amount} €`);
-      } else if (this.entries[i].type === "expense") {
+      } else if (entry.type === "expense") {
         formattedEntries.push(`${date} | ${description} | -${amount} €`);
       }
-    }
-
+    });
     return formattedEntries;
   }
 }
