@@ -42,5 +42,32 @@ class Expense extends Entry {
 
 
 // Budget
-class Budget {}
+class Budget {
+    constructor(){
+        this.entries = []; 
+    }
 
+    addEntry(newEntry){
+        this.entries.push(newEntry)
+    }
+
+    getCurrentBalance(){  
+        if (this.entries == 0){
+            return 0;
+        }  
+
+        let totalIncome = 0; 
+        let totalExpenses = 0; 
+    
+    this.entries.forEach(transaction => {
+        if (transaction.type === "income"){
+            totalIncome = totalIncome + transaction.amount; 
+        }
+        else if (transaction.type === "expense")
+            totalExpenses = totalExpenses + transaction.amount;           
+     }); 
+
+     return totalIncome - totalExpenses; 
+    }   
+
+}
